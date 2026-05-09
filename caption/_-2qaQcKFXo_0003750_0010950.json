@@ -1,0 +1,335 @@
+{
+    "version": "3.0",
+    "video_name": "_-2qaQcKFXo_0003750_0010950",
+    "overall": {
+        "weather": "fog",
+        "time_of_day": "golden_hour",
+        "season": "summer",
+        "lighting": "natural_direct",
+        "visibility": "very_low",
+        "location_type": "waterfront",
+        "camera_perspective": "first_person",
+        "camera_motion": "walking",
+        "camera_height": "eye_level",
+        "camera_stability": "stabilized",
+        "estimated_speed_kmh": 4.0,
+        "video_style": "game_engine",
+        "visual_quality": "cinematic",
+        "architecture_style": "mixed_era",
+        "color_tone": "warm",
+        "road_type": "none",
+        "traffic_level": "none",
+        "description": "First-person exploration through a foggy coastal environment in a video game, transitioning from heavy mist near an industrial building to a clear golden hour view of a marshy waterfront and rural grasslands. The camera moves continuously through tall grass and sandy terrain as the weather clears."
+    },
+    "segments": [
+        {
+            "segment_index": 0,
+            "time_range_s": [
+                0.0,
+                12.0
+            ],
+            "camera_action": "walking_forward",
+            "scene_state": {
+                "spatial_layout": "narrow_enclosed",
+                "sky_visibility": "not_visible",
+                "local_lighting": "low_light",
+                "weather_exposure": "exposed",
+                "ground_surface": "grass",
+                "vegetation": "dense",
+                "crowd_density": "empty",
+                "functional_zone": "foggy grassland adjacent to industrial structure"
+            },
+            "events": [],
+            "agents": {
+                "ego_action": "exploring",
+                "ego_description": "walking through tall grass alongside an industrial building in heavy fog, with limited visibility",
+                "pedestrian_flow": "none",
+                "pedestrian_behavior": "none",
+                "vehicle_presence": "none",
+                "notable_agents": []
+            },
+            "elements": {
+                "entered": [
+                    {
+                        "element": "industrial_building",
+                        "position": "left_near",
+                        "detail": "large rectangular concrete structure with dark windows, partially obscured by fog"
+                    },
+                    {
+                        "element": "power_lines",
+                        "position": "center_far",
+                        "detail": "multiple electrical wires stretching diagonally across the sky"
+                    },
+                    {
+                        "element": "tall_grass",
+                        "position": "center_near",
+                        "detail": "dense green vegetation reaching chest height, swaying slightly"
+                    }
+                ],
+                "exited": [],
+                "changed": []
+            },
+            "scene_description": "The segment opens in heavy fog alongside an industrial building. The camera moves forward through dense tall grass with power lines visible overhead. Visibility is extremely limited, creating an enclosed, mysterious atmosphere."
+        },
+        {
+            "segment_index": 1,
+            "time_range_s": [
+                12.0,
+                25.0
+            ],
+            "camera_action": "walking_forward",
+            "scene_state": {
+                "spatial_layout": "wide_open",
+                "sky_visibility": "partial",
+                "local_lighting": "natural_diffused",
+                "weather_exposure": "exposed",
+                "ground_surface": "grass",
+                "vegetation": "moderate",
+                "crowd_density": "empty",
+                "functional_zone": "coastal marsh transition zone with willow trees"
+            },
+            "events": [
+                {
+                    "time_s": 15.0,
+                    "category": "environment_change",
+                    "description": "fog begins to clear revealing marsh water and distant shoreline ahead"
+                },
+                {
+                    "time_s": 20.0,
+                    "category": "lighting_change",
+                    "description": "sun becomes visible through the dissipating fog, casting golden light"
+                }
+            ],
+            "agents": {
+                "ego_action": "exploring",
+                "ego_description": "approaching the waterfront as fog clears, moving toward the water's edge past willow trees",
+                "pedestrian_flow": "none",
+                "pedestrian_behavior": "none",
+                "vehicle_presence": "none",
+                "notable_agents": []
+            },
+            "elements": {
+                "entered": [
+                    {
+                        "element": "marsh_water",
+                        "position": "center_far",
+                        "detail": "calm water with small islands and sandbars emerging from the fog"
+                    },
+                    {
+                        "element": "willow_tree",
+                        "position": "right_mid",
+                        "detail": "drooping branches of a willow tree becoming visible on the right side"
+                    },
+                    {
+                        "element": "distant_ship",
+                        "position": "center_far",
+                        "detail": "large industrial vessel or structure visible on the horizon through the mist"
+                    }
+                ],
+                "exited": [
+                    {
+                        "element": "industrial_building",
+                        "reason": "passed_behind"
+                    }
+                ],
+                "changed": [
+                    {
+                        "element": "power_lines",
+                        "from": "center_far",
+                        "to": "right_far"
+                    }
+                ]
+            },
+            "scene_description": "As the fog lifts, the scene opens to reveal a marshy waterfront. The camera moves past willow trees toward the water where a distant ship structure is visible. The sun begins to penetrate the mist, transitioning the lighting from gray to golden."
+        },
+        {
+            "segment_index": 2,
+            "time_range_s": [
+                25.0,
+                40.0
+            ],
+            "camera_action": "walking_forward",
+            "scene_state": {
+                "spatial_layout": "wide_open",
+                "sky_visibility": "full",
+                "local_lighting": "natural_direct",
+                "weather_exposure": "exposed",
+                "ground_surface": "sand",
+                "vegetation": "sparse",
+                "crowd_density": "empty",
+                "functional_zone": "open tidal marsh at golden hour with scattered pools"
+            },
+            "events": [
+                {
+                    "time_s": 30.0,
+                    "category": "environment_change",
+                    "description": "fog fully dissipates revealing clear sky and distant mountain range"
+                }
+            ],
+            "agents": {
+                "ego_action": "exploring",
+                "ego_description": "traversing the marshy shoreline with water on both sides, observing the distant ship and mountains",
+                "pedestrian_flow": "none",
+                "pedestrian_behavior": "none",
+                "vehicle_presence": "none",
+                "notable_agents": []
+            },
+            "elements": {
+                "entered": [
+                    {
+                        "element": "mountain_range",
+                        "position": "center_far",
+                        "detail": "distant hills and mountains becoming visible on the horizon as fog clears"
+                    },
+                    {
+                        "element": "sandy_terrain",
+                        "position": "center_near",
+                        "detail": "wet sand and mud with tidal pools reflecting the golden sunlight"
+                    }
+                ],
+                "exited": [
+                    {
+                        "element": "willow_tree",
+                        "reason": "passed_behind"
+                    },
+                    {
+                        "element": "power_lines",
+                        "reason": "turned_away"
+                    }
+                ],
+                "changed": [
+                    {
+                        "element": "marsh_water",
+                        "from": "center_mid",
+                        "to": "left_far"
+                    },
+                    {
+                        "element": "distant_ship",
+                        "from": "center_far",
+                        "to": "right_far"
+                    }
+                ]
+            },
+            "scene_description": "The fog completely clears to reveal a vast open marsh landscape bathed in golden hour light. The camera moves across sandy tidal flats with the sun low on the horizon. Distant mountains become visible in the background while the water stretches out to the left."
+        },
+        {
+            "segment_index": 3,
+            "time_range_s": [
+                40.0,
+                60.0
+            ],
+            "camera_action": "walking_forward_slight_left",
+            "scene_state": {
+                "spatial_layout": "wide_open",
+                "sky_visibility": "full",
+                "local_lighting": "natural_direct",
+                "weather_exposure": "exposed",
+                "ground_surface": "grass",
+                "vegetation": "moderate",
+                "crowd_density": "empty",
+                "functional_zone": "rural grassland with abandoned structures and utility poles"
+            },
+            "events": [
+                {
+                    "time_s": 42.0,
+                    "category": "scene_transition",
+                    "description": "moving away from waterfront into inland grassland with scattered trees"
+                },
+                {
+                    "time_s": 55.0,
+                    "category": "motion_change",
+                    "description": "slight turn toward the abandoned buildings on the left"
+                }
+            ],
+            "agents": {
+                "ego_action": "exploring",
+                "ego_description": "walking through tall grass toward rural buildings, passing willow trees and wooden utility poles",
+                "pedestrian_flow": "none",
+                "pedestrian_behavior": "none",
+                "vehicle_presence": "none",
+                "notable_agents": []
+            },
+            "elements": {
+                "entered": [
+                    {
+                        "element": "utility_pole",
+                        "position": "center_mid",
+                        "detail": "wooden electrical pole with crossbars and wires running along the path"
+                    },
+                    {
+                        "element": "abandoned_buildings",
+                        "position": "left_far",
+                        "detail": "cluster of weathered wooden rural structures with sloped roofs"
+                    },
+                    {
+                        "element": "willow_tree",
+                        "position": "left_near",
+                        "detail": "mature willow trees with hanging branches lining the grassy path"
+                    }
+                ],
+                "exited": [
+                    {
+                        "element": "marsh_water",
+                        "reason": "passed_behind"
+                    },
+                    {
+                        "element": "distant_ship",
+                        "reason": "faded_distance"
+                    }
+                ],
+                "changed": [
+                    {
+                        "element": "mountain_range",
+                        "from": "center_far",
+                        "to": "right_far"
+                    }
+                ]
+            },
+            "scene_description": "The camera turns inland away from the water, moving through a grassy field toward abandoned rural buildings. Willow trees and wooden utility poles line the path while distant mountains remain visible in the background under a clear sky with scattered clouds."
+        }
+    ],
+    "annotation_meta": {
+        "model": "kimi-k2.5-donaldhe",
+        "resolution": 360,
+        "fps": 1,
+        "processed_at": "2026-04-21T15:24:17.203492",
+        "machine_id": "TENCENT64.site_213",
+        "total_vlm_calls": 1,
+        "retries": 0,
+        "elapsed_s": 243.3,
+        "merged_mode": true,
+        "overall_errors": [],
+        "overall_warnings": [],
+        "overall_fixes": [],
+        "segments_errors": [],
+        "segments_warnings": [],
+        "segments_fixes": []
+    },
+    "_inventory_raw": "=== Segment 0 [0.0s - 12.0s] ===\n[t=0s] industrial_building(left_near), power_lines(center_far), tall_grass(center_near)\n[t=6s] industrial_building(left_mid), power_lines(center_far), scrub_vegetation(right_near)\n[t=10s] industrial_building(left_far), power_lines(center_far), willow_tree(right_mid)\n\n=== Segment 1 [12.0s - 25.0s] ===\n[t=12s] willow_tree(right_mid), marsh_water(center_far), power_lines(center_far)\n[t=18s] willow_tree(right_near), marsh_water(center_mid), distant_ship(center_far)\n[t=22s] marsh_water(center_mid), sandy_shore(center_near), sun_disk(center_far)\n\n=== Segment 2 [25.0s - 40.0s] ===\n[t=28s] marsh_water(center_mid), distant_ship(right_far), sun(center_far)\n[t=32s] marsh_water(left_mid), distant_ship(right_far), sandy_terrain(center_near)\n[t=38s] marsh_water(left_far), grassy_bank(center_near), mountain_range(center_far)\n\n=== Segment 3 [40.0s - 60.0s] ===\n[t=45s] willow_tree(left_near), utility_pole(center_mid), abandoned_buildings(left_far)\n[t=52s] willow_tree(right_mid), utility_pole(center_near), abandoned_buildings(left_mid)\n[t=58s] utility_pole(right_near), abandoned_buildings(left_mid), mountain_range(center_far)",
+    "merged_segments": [
+        {
+            "segment_index": 0,
+            "time_range_s": [
+                0.0,
+                60.0
+            ],
+            "duration_s": 60.0,
+            "scene_description": "The shot follows a continuous camera movement through a foggy industrial perimeter that gradually opens into a vast, sun-drenched coastal landscape. It begins in heavy fog alongside an industrial building, pushing forward through dense tall grass beneath overhead power lines where visibility is severely limited. As the fog lifts, the scene expands to reveal a marshy waterfront with willow trees and a distant ship structure, while the lighting shifts from a muted gray to warm golden tones. The camera then glides across sandy tidal flats under a clear sky, revealing distant mountains and open water as the sun hangs low on the horizon. Finally, the view turns inland through grassy fields and past wooden utility poles toward abandoned rural buildings under a bright, scattered cloudscape.",
+            "source_segment_indices": [
+                0,
+                1,
+                2,
+                3
+            ]
+        }
+    ],
+    "merge_meta": {
+        "n_source_segments": 4,
+        "n_merged_segments": 1,
+        "target_range_s": [
+            40.0,
+            60.0
+        ],
+        "llm_model": "/mnt/workspace/hk/models/gemma-4-31B-it"
+    }
+}
