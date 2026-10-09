@@ -1,0 +1,178 @@
+[
+  {
+    "game": "Hogwarts Legacy",
+    "clip_id": "-77hvIALWvo_0010950_0018150",
+    "view_group": "third",
+    "view_label": "third person follow",
+    "scene_label": "temple shrine",
+    "duration_s": 120.0024,
+    "preview_duration_s": 12,
+    "preview": "assets/media/world-01.mp4",
+    "poster": "assets/media/world-01.jpg",
+    "source_url": "https://www.youtube.com/watch?v=-77hvIALWvo",
+    "annotation_range": [
+      0.0,
+      15.0
+    ],
+    "annotation": {
+      "static_scene": "A narrow enclosed ancient stone corridor with cobblestone floors, rough-hewn stone walls, and wall-mounted torches casting warm light. Scattered rubble litters the floor.",
+      "subject_motion": "The robed character walks through a stone corridor and climbs a central staircase toward an upper level.",
+      "environment_motion": "A cow-like creature stands idle near the wall to the left.",
+      "camera_description": "A stabilized third-person chest-height perspective follows the character, moving forward and then ascending."
+    }
+  },
+  {
+    "game": "Grand Theft Auto V",
+    "clip_id": "-0ewPjoBBNI_0054150_0061350",
+    "view_group": "third",
+    "view_label": "third person follow",
+    "scene_label": "urban downtown",
+    "duration_s": 120.0024,
+    "preview_duration_s": 12,
+    "preview": "assets/media/world-02.mp4",
+    "poster": "assets/media/world-02.jpg",
+    "source_url": "https://www.youtube.com/watch?v=-0ewPjoBBNI",
+    "annotation_range": [
+      0.0,
+      15.0
+    ],
+    "annotation": {
+      "static_scene": "A narrow enclosed sidewalk beside a multi-story concrete parking garage with red trim and a tall cinder block retaining wall. A red and white lattice communication tower is visible in the distance.",
+      "subject_motion": "The character walks steadily forward along a narrow sidewalk and turns right to follow the path of a concrete wall.",
+      "environment_motion": "An advertising blimp floats in the distant orange sky while the rest of the scene remains still with only parked vehicles.",
+      "camera_description": "A stabilized third-person perspective at chest height following the subject from behind, moving forward and then turning right."
+    }
+  },
+  {
+    "game": "Cyberpunk 2077",
+    "clip_id": "-EJthjSauyE_0010950_0018150",
+    "view_group": "first",
+    "view_label": "first person",
+    "scene_label": "urban residential",
+    "duration_s": 120.0024,
+    "preview_duration_s": 12,
+    "preview": "assets/media/world-03.mp4",
+    "poster": "assets/media/world-03.jpg",
+    "source_url": "https://www.youtube.com/watch?v=-EJthjSauyE",
+    "annotation_range": [
+      0.0,
+      15.0
+    ],
+    "annotation": {
+      "static_scene": "A narrow enclosed alley with asphalt ground and weathered gray concrete buildings featuring industrial pipes, AC units, and red-and-white striped concrete barriers.",
+      "subject_motion": "The player moves slowly forward through a narrow alley, observing a burning garbage pile on the right.",
+      "environment_motion": "A large pile of garbage bags is engulfed in active flames, emitting smoke and embers.",
+      "camera_description": "The camera is in a first-person perspective at eye level, moving forward with a stabilized walking motion."
+    }
+  },
+  {
+    "game": "Red Dead Redemption 2",
+    "clip_id": "-Ejt1pe7YwA_0017458_0018516",
+    "view_group": "third",
+    "view_label": "third person follow",
+    "scene_label": "indoor residential",
+    "duration_s": 17.633685833333335,
+    "preview_duration_s": 12,
+    "preview": "assets/media/world-04.mp4",
+    "poster": "assets/media/world-04.jpg",
+    "source_url": "https://www.youtube.com/watch?v=-Ejt1pe7YwA",
+    "annotation_range": [
+      0.0,
+      5.0
+    ],
+    "annotation": {
+      "static_scene": "A narrow cabin entryway corridor with rough wooden walls, a wooden deck floor, and structural support beams.",
+      "subject_motion": "The character in period clothing opens the cabin door and walks forward through a narrow wooden corridor.",
+      "environment_motion": "The scene is static as the character moves from the exterior into the enclosed entryway.",
+      "camera_description": "A stabilized third-person perspective at chest height following the character from behind with a smooth walking motion."
+    }
+  },
+  {
+    "game": "Elden Ring",
+    "clip_id": "-t8DdbKbtm8_0011010_0018210",
+    "view_group": "third",
+    "view_label": "third person follow",
+    "scene_label": "wetland swamp",
+    "duration_s": 120.0024,
+    "preview_duration_s": 12,
+    "preview": "assets/media/world-05.mp4",
+    "poster": "assets/media/world-05.jpg",
+    "source_url": "https://www.youtube.com/watch?v=-t8DdbKbtm8",
+    "annotation_range": [
+      0.0,
+      15.0
+    ],
+    "annotation": {
+      "static_scene": "A wide-open flooded ruin area with crumbling stone walls on both sides and a large castle visible in the far distance under a blue hour sky.",
+      "subject_motion": "The character in ornate armor with red hair wades forward through shallow water.",
+      "environment_motion": "Mist swirls around the ruins while red particles drift in the air.",
+      "camera_description": "A stabilized third-person follow camera at chest height, moving forward in a straight line."
+    }
+  },
+  {
+    "game": "Forza Horizon 5",
+    "clip_id": "2DRBbHpkd54_0021021_0026238",
+    "view_group": "first",
+    "view_label": "first person",
+    "scene_label": "highway road",
+    "duration_s": 86.95173833333334,
+    "preview_duration_s": 12,
+    "preview": "assets/media/world-06.mp4",
+    "poster": "assets/media/world-06.jpg",
+    "source_url": "https://www.youtube.com/watch?v=2DRBbHpkd54",
+    "annotation_range": [
+      0.0,
+      12.0
+    ],
+    "annotation": {
+      "static_scene": "A wide-open rural highway with an asphalt surface, sparse vegetation, and distant hills under direct natural lighting.",
+      "subject_motion": "The player navigates tight rural curves at low speed before rapidly accelerating on a straight section.",
+      "environment_motion": "A silver car remains parked on the roadside shoulder as the player passes.",
+      "camera_description": "The camera is at eye-level in a stabilized first-person perspective, following the vehicle's motion as it corners and accelerates."
+    }
+  },
+  {
+    "game": "Ghost of Tsushima",
+    "clip_id": "-MRTRTcN1S4_0029587_0030531",
+    "view_group": "third",
+    "view_label": "third person follow",
+    "scene_label": "forest",
+    "duration_s": 15.7336475,
+    "preview_duration_s": 12,
+    "preview": "assets/media/world-07.mp4",
+    "poster": "assets/media/world-07.jpg",
+    "source_url": "https://www.youtube.com/watch?v=-MRTRTcN1S4",
+    "annotation_range": [
+      0.0,
+      5.0
+    ],
+    "annotation": {
+      "static_scene": "A wide-open forest combat clearing with a dirt trail, dense red maple trees, and large rock formations under direct natural light.",
+      "subject_motion": "The player character engages multiple Mongol soldiers in sword combat and deploys a tactical smoke bomb.",
+      "environment_motion": "A Mongol soldier approaches from the left flank with a sword while another attacks from the right with a polearm; a white smoke cloud expands across the clearing.",
+      "camera_description": "A stabilized third-person perspective at chest height that orbits the subject during the fight."
+    }
+  },
+  {
+    "game": "The Witcher 3: Wild Hunt",
+    "clip_id": "-o7aG6cmNGk_0003750_0010950",
+    "view_group": "third",
+    "view_label": "third person follow",
+    "scene_label": "urban historic",
+    "duration_s": 120.0024,
+    "preview_duration_s": 12,
+    "preview": "assets/media/world-08.mp4",
+    "poster": "assets/media/world-08.jpg",
+    "source_url": "https://www.youtube.com/watch?v=-o7aG6cmNGk",
+    "annotation_range": [
+      0.0,
+      15.0
+    ],
+    "annotation": {
+      "static_scene": "A narrow dirt trail flanked by a tall weathered stone fortress wall on the left and a steep rocky cliff edge on the right, with misty mountains in the far distance under a golden sky.",
+      "subject_motion": "The player walks steadily forward along a narrow cliffside path beside a fortress wall.",
+      "environment_motion": "None; the scene is still except for the player's movement.",
+      "camera_description": "A stabilized third-person follow camera at waist height, moving forward in a straight line."
+    }
+  }
+]

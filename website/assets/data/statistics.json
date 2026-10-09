@@ -1,0 +1,78 @@
+{
+  "clips": 69678,
+  "hours": 1655.045749357243,
+  "frames": 349628223,
+  "two_minute_clips": 40752,
+  "two_minute_hours": 1358.4254537023924,
+  "mean_duration_s": 85.50998446692886,
+  "snapshot_date": "2026-10-10",
+  "source_manifest": "gameverse_youtube_gameplay_with_static_gamestyle.merged_caption.ocr_pass.jsonl",
+  "source_sha256": "735790df2ebc14fe6825811c679989a470b64351cb95c5a6634e3d7a620eda08",
+  "duration_bins": [
+    {
+      "label": "10–15 s",
+      "clips": 7194,
+      "hours": 24.454495237731475,
+      "clip_percent": 10.324636183587359,
+      "duration_percent": 1.4775721606021266,
+      "boundary_rule": "Snap to nearest published duration edge only when within 0.05 seconds"
+    },
+    {
+      "label": "15–20 s",
+      "clips": 4281,
+      "hours": 20.499753653935166,
+      "clip_percent": 6.143976577972961,
+      "duration_percent": 1.2386215705454964,
+      "boundary_rule": "Snap to nearest published duration edge only when within 0.05 seconds"
+    },
+    {
+      "label": "20–30 s",
+      "clips": 5111,
+      "hours": 34.627690527546335,
+      "clip_percent": 7.335170355061856,
+      "duration_percent": 2.0922497484431726,
+      "boundary_rule": "Snap to nearest published duration edge only when within 0.05 seconds"
+    },
+    {
+      "label": "30–45 s",
+      "clips": 4025,
+      "hours": 41.04361496458331,
+      "clip_percent": 5.7765722322684345,
+      "duration_percent": 2.479908182630184,
+      "boundary_rule": "Snap to nearest published duration edge only when within 0.05 seconds"
+    },
+    {
+      "label": "45–60 s",
+      "clips": 2435,
+      "hours": 35.19009235486114,
+      "clip_percent": 3.494646803869227,
+      "duration_percent": 2.126230792624774,
+      "boundary_rule": "Snap to nearest published duration edge only when within 0.05 seconds"
+    },
+    {
+      "label": "60–90 s",
+      "clips": 3466,
+      "hours": 71.07396146111098,
+      "clip_percent": 4.974310399265192,
+      "duration_percent": 4.294380471882026,
+      "boundary_rule": "Snap to nearest published duration edge only when within 0.05 seconds"
+    },
+    {
+      "label": "90–120 s",
+      "clips": 2414,
+      "hours": 69.73068745555565,
+      "clip_percent": 3.4645081661356527,
+      "duration_percent": 4.213218122981579,
+      "boundary_rule": "Snap to nearest published duration edge only when within 0.05 seconds"
+    },
+    {
+      "label": "≈120 s",
+      "clips": 40752,
+      "hours": 1358.4254537023924,
+      "clip_percent": 58.48617928183932,
+      "duration_percent": 82.07781895031926,
+      "boundary_rule": "Snap to nearest published duration edge only when within 0.05 seconds"
+    }
+  ],
+  "annotation_status": "Full-duration captions are being refreshed."
+}

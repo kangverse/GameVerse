@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gameverse.github.io/GameVerse/sitemap.xml
