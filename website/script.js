@@ -2,7 +2,7 @@
 const $ = id => document.getElementById(id);
 const number = n => new Intl.NumberFormat('en-US').format(n);
 const escapeHTML = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const SITE_VERSION = '20261010-paper-video-frames';
+const SITE_VERSION = '20261010-camera-controls';
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 const conserveData = !!navigator.connection?.saveData;
 let cases = [], stats, continuity, researchResults, heroIndex = 6, heroPaused = reduced.matches || conserveData;
@@ -174,12 +174,12 @@ document.querySelectorAll('[data-plane]').forEach(b=>b.addEventListener('click',
 function renderResultScene() {
   const result=researchResults.groups[resultType][Number($('result-scene').value||0)];
   $('result-frames').replaceChildren();
-  for(const frame of result.frames) {
+  for(const [frameIndex,frame] of result.frames.entries()) {
     const figure=document.createElement('figure');figure.className='result-frame';
-    figure.innerHTML=`<a href="${escapeHTML(frame.src)}" target="_blank" rel="noreferrer" aria-label="Open ${escapeHTML(result.label)} generated frame at ${frame.time_s} seconds"><img src="${escapeHTML(frame.src)}" alt="${escapeHTML(result.label)}: decoded output frame at ${frame.time_s} seconds" loading="lazy" width="960" height="544"></a><figcaption>${frame.time_s===0?'Start · ':''}${frame.time_s} s</figcaption>`;
+    figure.innerHTML=`<a href="${escapeHTML(frame.src)}" target="_blank" rel="noreferrer" aria-label="Open ${escapeHTML(result.label)} generated frame ${frameIndex+1}"><img src="${escapeHTML(frame.src)}" alt="${escapeHTML(result.label)}: generated frame ${frameIndex+1}" loading="lazy" width="960" height="544"></a>`;
     $('result-frames').append(figure);
   }
-  $('result-caption').textContent='Full-frame screenshots from the original 20-second camera-conditioned evaluation video · 0 s is the first decoded output frame · Select any frame to view it at full resolution.';
+  $('result-caption').textContent=resultType==='camera'?'Original generated frames · Left: movement control · Right: camera rotation · Select a frame to view it at full resolution.':'Original generated frames · Select a frame to view it at full resolution.';
   $('result-source').textContent=result.source_file;
 }
 function renderResult(type) {
