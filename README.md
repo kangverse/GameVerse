@@ -8,7 +8,7 @@ The verified final video selection contains **69,678 clips**, **1,655.05 video h
 
 The new project website is in [`website/`](website/), with eight attributed gameplay recording excerpts, duration distributions, structured annotation examples, and resource links.
 
-The intended address is **https://gameverse.github.io/GameVerse/**. It is **not deployed yet**: this repository belongs to `kangverse`, and publishing at that address requires access to the `gameverse` account or organization and its `GameVerse` repository. The Pages workflow deliberately runs only when the repository owner is `gameverse`.
+The project website is published at **https://kangverse.github.io/GameVerse/**. Updates to `website/` on `main` automatically deploy through GitHub Pages. The eventual preferred address is https://gameverse.github.io/GameVerse/, pending access to that account or organization.
 
 Preview locally:
 
@@ -16,7 +16,7 @@ Preview locally:
 python3 -m http.server 8766 --directory website
 ```
 
-Open http://127.0.0.1:8766/ . For deployment, place this website in `gameverse/GameVerse`, enable GitHub Actions in Settings > Pages, and run the included workflow.
+For public access, open https://kangverse.github.io/GameVerse/ . GitHub Actions is configured as the Pages publishing source.
 
 ## Release status
 
