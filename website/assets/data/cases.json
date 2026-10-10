@@ -133,24 +133,25 @@
   },
   {
     "game": "Ghost of Tsushima",
-    "clip_id": "-MRTRTcN1S4_0029587_0030531",
+    "clip_id": "JP63JivpI04_0003750_0010950",
     "view_group": "third",
     "view_label": "third person follow",
-    "scene_label": "forest",
-    "duration_s": 15.7336475,
+    "scene_label": "farmland",
+    "duration_s": 120.0024,
     "preview_duration_s": 12,
-    "preview": "assets/media/world-07.mp4",
-    "poster": "assets/media/world-07.jpg",
-    "source_url": "https://www.youtube.com/watch?v=-MRTRTcN1S4",
+    "preview_start_s": 0.0,
+    "preview": "assets/media/world-07-ghost-meadow.mp4",
+    "poster": "assets/media/world-07-ghost-meadow.jpg",
+    "source_url": "https://www.youtube.com/watch?v=JP63JivpI04",
     "annotation_range": [
       0.0,
-      5.0
+      20.0
     ],
     "annotation": {
-      "static_scene": "A wide-open forest combat clearing with a dirt trail, dense red maple trees, and large rock formations under direct natural light.",
-      "subject_motion": "The player character engages multiple Mongol soldiers in sword combat and deploys a tactical smoke bomb.",
-      "environment_motion": "A Mongol soldier approaches from the left flank with a sword while another attacks from the right with a polearm; a white smoke cloud expands across the clearing.",
-      "camera_description": "A stabilized third-person perspective at chest height that orbits the subject during the fight."
+      "static_scene": "A wide-open grassland with a narrow worn earth path, a prominent red torii gate in the distance, and a dark green forest tree line on the horizon.",
+      "subject_motion": "The samurai character runs through tall golden grass toward a distant red torii gate.",
+      "environment_motion": "Dense golden pampas grass sways in the wind surrounding the dirt path.",
+      "camera_description": "The camera is in a stabilized third-person follow perspective at chest height, moving forward."
     }
   },
   {
@@ -173,6 +174,29 @@
       "subject_motion": "The player walks steadily forward along a narrow cliffside path beside a fortress wall.",
       "environment_motion": "None; the scene is still except for the player's movement.",
       "camera_description": "A stabilized third-person follow camera at waist height, moving forward in a straight line."
+    }
+  },
+  {
+    "game": "Assassin's Creed Odyssey",
+    "clip_id": "1mntQJrhjC0_0003750_0010950",
+    "view_group": "third",
+    "view_label": "third person follow",
+    "scene_label": "urban historic",
+    "duration_s": 120.0024,
+    "preview_duration_s": 12,
+    "preview_start_s": 0.0,
+    "preview": "assets/media/world-09-odyssey.mp4",
+    "poster": "assets/media/world-09-odyssey.jpg",
+    "source_url": "https://www.youtube.com/watch?v=1mntQJrhjC0",
+    "annotation_range": [
+      0.0,
+      12.0
+    ],
+    "annotation": {
+      "static_scene": "A semi-covered temple courtyard with paved tiles, featuring a rectangular sacred pool with lily pads, fluted stone columns with red and white bands, and a distant acropolis on the horizon.",
+      "subject_motion": "The player walks forward from a standing position at the edge of a temple pool, passing seated individuals on stone benches.",
+      "environment_motion": "A few NPCs are scattered around the courtyard, including a figure in brown robes resting by the pool edge.",
+      "camera_description": "The camera follows the player from a stabilized third-person perspective at chest height, moving forward with a slight leftward drift."
     }
   }
 ]

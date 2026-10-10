@@ -2,6 +2,7 @@
 const $ = id => document.getElementById(id);
 const number = n => new Intl.NumberFormat('en-US').format(n);
 const escapeHTML = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const SITE_VERSION = '20261010-light-nine';
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 let cases = [], stats, heroIndex = 0, heroPaused = reduced.matches, chartMode = 'clips', activeField = 'static_scene';
 const fieldNames = {static_scene:'Scene structure',subject_motion:'Player behavior',environment_motion:'World dynamics',camera_description:'Camera viewpoint & motion'};
@@ -90,7 +91,7 @@ document.addEventListener('visibilitychange',()=>{if(document.hidden){$('hero-vi
 
 async function init(){
   try{
-    const result=await Promise.all(['assets/data/statistics.json','assets/data/cases.json'].map(async path=>{const r=await fetch(path);if(!r.ok)throw Error(path);return r.json();}));
+    const result=await Promise.all(['assets/data/statistics.json','assets/data/cases.json'].map(async path=>{const r=await fetch(`${path}?v=${SITE_VERSION}`);if(!r.ok)throw Error(path);return r.json();}));
     [stats,cases]=result;
     $('stat-clips').textContent=number(stats.clips);$('stat-hours').textContent=number(Math.round(stats.hours));$('stat-frames').textContent=(stats.frames/1e6).toFixed(1)+'M';$('stat-two').textContent=number(stats.two_minute_clips);
     $('two-minute-share').textContent=(stats.two_minute_hours/stats.hours*100).toFixed(1)+'%';

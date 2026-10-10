@@ -6,7 +6,7 @@ The verified final video selection contains **69,678 clips**, **1,655.05 video h
 
 ## Project website
 
-The new project website is in [`website/`](website/), with eight attributed gameplay recording excerpts, duration distributions, structured annotation examples, and resource links.
+The new project website is in [`website/`](website/), with nine attributed gameplay recording excerpts, duration distributions, structured annotation examples, and resource links.
 
 The project website is published at **https://kangverse.github.io/GameVerse/**. Updates to `website/` on `main` automatically deploy through GitHub Pages. The eventual preferred address is https://gameverse.github.io/GameVerse/, pending access to that account or organization.
 
