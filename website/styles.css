@@ -21,3 +21,16 @@
 @media(max-width:480px){.result-labels{display:flex;font-size:9px}.result-frames{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px 10px}.result-frame:last-child{grid-column:1/-1}}
 
 @media(max-width:480px){.result-prompt{padding:16px 18px}.result-prompt p{font-size:13px}}
+
+/* Compact, scalable resource icons with readable labels on every device. */
+.resource{border-radius:7px;justify-content:center;gap:10px;transition:background-color .18s,border-color .18s,box-shadow .18s}
+.resource .resource-label{display:inline-flex;align-items:center;gap:7px;font:inherit;color:inherit;white-space:nowrap}
+.resource-icon{display:block;width:18px;height:18px;flex-shrink:0}
+.resource .resource-status{font-size:8px;white-space:nowrap}
+.resource.pending{justify-content:space-between}
+.resource:not(.pending):hover{background:var(--accent-soft);color:var(--accent);box-shadow:0 2px 8px #1923380a}
+.resource.primary:hover{background:#2448c7;color:var(--on-accent)}
+.nav-link{display:inline-flex;align-items:center;gap:7px}
+.access-actions .button{justify-content:center;gap:10px;border-radius:7px}
+.open-icon{border-radius:5px}
+@media(max-width:480px){.resource{padding:8px 10px;gap:7px}.resource .resource-label{gap:6px}.resource-icon{width:16px;height:16px}.resource .resource-status{font-size:7.5px}}

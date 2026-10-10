@@ -12,14 +12,14 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=world-orbit"><link rel="icon" href="assets/favicon.ico?v=world-orbit"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=results-prompts"><script defer src="script.js?v=results-prompts"></script>
+  <link rel="stylesheet" href="styles.css?v=resource-icons"><script defer src="script.js?v=resource-icons"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="nav">
     <a class="brand" href="#top"><img class="brand-icon" src="assets/gameverse-logo.png" alt="" width="32" height="32">GameVerse</a>
     <nav aria-label="Main"><a href="#explore">Samples</a><a href="#scale">Dataset</a><a href="#annotations">Annotations</a><a href="#results">Results</a><a href="#citation">Citation</a></nav>
-    <a class="nav-link" href="https://github.com/kangverse/GameVerse" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+    <a class="nav-link" href="https://github.com/kangverse/GameVerse" target="_blank" rel="noreferrer"><svg class="resource-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-15-2 18"/></svg>GitHub</a>
   </header>
   <main id="main">
     <section class="hero" id="top">
@@ -31,17 +31,17 @@
           <p class="hero-intro">Continuous gameplay, camera trajectories, and structured semantics for worlds that keep going.</p>
           <p class="authors">Kang He · Wenshuo Peng · Chuanhao Li · Zihui Gao · Xiaojie Xu · Zhengyuan Lin · Yuzhe Ding · Donghong Ji · Kaipeng Zhang · Yongtao Ge</p>
           <div class="resource-links" aria-label="Project resources">
-            <span class="resource pending" aria-label="Paper link forthcoming">Paper <span>Forthcoming</span></span>
-            <a class="resource primary" href="https://github.com/kangverse/GameVerse" target="_blank" rel="noreferrer">Code <span>↗</span></a>
-            <a class="resource" href="https://huggingface.co/datasets/Kangverse/GameVerse" target="_blank" rel="noreferrer">Dataset <span>HF ↗</span></a>
-            <a class="resource" href="#citation">Cite <span>↓</span></a>
+            <span class="resource pending" aria-label="Paper link forthcoming"><span class="resource-label"><svg class="resource-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"/><path d="M14 3v6h6M8 13h8M8 17h6"/></svg>Paper</span><span class="resource-status">Forthcoming</span></span>
+            <a class="resource primary" href="https://github.com/kangverse/GameVerse" target="_blank" rel="noreferrer"><span class="resource-label"><svg class="resource-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-15-2 18"/></svg>Code</span></a>
+            <a class="resource" href="https://huggingface.co/datasets/Kangverse/GameVerse" target="_blank" rel="noreferrer"><span class="resource-label"><svg class="resource-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg>Dataset</span><span class="resource-status">HF</span></a>
+            <a class="resource" href="#citation"><span class="resource-label"><svg class="resource-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 5H5a2 2 0 0 0-2 2v5h7V5Zm0 7v2a5 5 0 0 1-5 5M21 5h-5a2 2 0 0 0-2 2v5h7V5Zm0 7v2a5 5 0 0 1-5 5"/></svg>Cite</span></a>
           </div>
         </div>
         <div class="hero-preview">
           <div class="hero-screen">
             <video id="hero-video" muted autoplay loop playsinline preload="metadata" poster="assets/media/world-07-ghost-meadow.jpg" aria-label="A real gameplay recording from GameVerse"></video>
             <div class="screen-top"><span class="screen-tag">DATASET RECORDING</span><button id="hero-motion" class="motion-button" type="button" aria-label="Pause background video">Pause Ⅱ</button></div>
-            <div class="screen-bottom"><div><span class="mono">WORLD / <span id="hero-index">07</span></span><h3 id="hero-game">Ghost of Tsushima</h3></div><a class="screen-explore" href="#explore" aria-label="Explore gameplay recordings">Explore ↗</a></div>
+            <div class="screen-bottom"><div><span class="mono">WORLD / <span id="hero-index">07</span></span><h3 id="hero-game">Ghost of Tsushima</h3></div><a class="screen-explore" href="#explore" aria-label="Explore gameplay recordings">Explore</a></div>
           </div>
           <div id="hero-choices" class="hero-choices" role="group" aria-label="Choose a gameplay preview"></div>
           <p class="caption hero-caption">Real retained footage · Short preview · Original creators credited below</p>
@@ -67,7 +67,7 @@
       <div class="section-heading"><div><div class="section-label"><span>03</span> TEMPORAL SCALE</div><h2>One world.<br>Two uninterrupted minutes.</h2></div><p>Follow a complete retained recording, from its first frame to its last. Select a moment below to jump through the same evolving scene.</p></div>
       <div class="continuity-player">
         <video id="continuity-video" controls playsinline preload="none" poster="assets/media/continuity-000.jpg" aria-label="Complete two-minute Ghost of Tsushima dataset recording"></video>
-        <div class="player-meta"><div><span class="eyebrow">COMPLETE DATASET RECORDING</span><h3>Ghost of Tsushima</h3></div><a id="continuity-source" class="text-link" target="_blank" rel="noreferrer">Original source ↗</a></div>
+        <div class="player-meta"><div><span class="eyebrow">COMPLETE DATASET RECORDING</span><h3>Ghost of Tsushima</h3></div><a id="continuity-source" class="text-link" target="_blank" rel="noreferrer">Original source</a></div>
       </div>
       <div class="keyframes" id="keyframes" role="group" aria-label="Jump to a moment in the complete recording"></div>
       <p class="caption">Keyframes are sampled from this single continuous clip. The 120 s card shows the last available frame.</p>
@@ -96,7 +96,7 @@
       <div class="section-heading"><div><div class="section-label"><span>06</span> DATA CONSTRUCTION</div><h2>Gameplay to supervision.</h2></div></div>
       <ol class="pipeline"><li><span class="mono">01 / COLLECT</span><h3>Gameplay sources</h3><p>Diverse games, viewpoints, and environments.</p></li><li><span class="mono">02 / SEGMENT</span><h3>Continuous scenes</h3><p>Scene-consistent clips up to two minutes.</p></li><li><span class="mono">03 / FILTER</span><h3>Retained footage</h3><p>Final video selection defines the published scale.</p></li><li><span class="mono">04 / ANNOTATE</span><h3>Geometry & semantics</h3><p>Estimated poses and structured captions.</p></li></ol>
     </section>
-    <section class="section access-section" id="access"><div class="access-box"><div><div class="section-label"><span>07</span> RESOURCES</div><h2>Build with GameVerse.</h2><p>The code repository is available. The Hugging Face dataset is currently private; public access and the paper link will follow with the release.</p></div><div class="access-actions"><a class="button" href="https://github.com/kangverse/GameVerse" target="_blank" rel="noreferrer">Explore the code <span>↗</span></a><a class="button outline" href="https://huggingface.co/datasets/Kangverse/GameVerse" target="_blank" rel="noreferrer">Dataset repository <span>↗</span></a></div></div></section>
+    <section class="section access-section" id="access"><div class="access-box"><div><div class="section-label"><span>07</span> RESOURCES</div><h2>Build with GameVerse.</h2><p>The code repository is available. The Hugging Face dataset is currently private; public access and the paper link will follow with the release.</p></div><div class="access-actions"><a class="button" href="https://github.com/kangverse/GameVerse" target="_blank" rel="noreferrer"><svg class="resource-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-15-2 18"/></svg>Explore the code</a><a class="button outline" href="https://huggingface.co/datasets/Kangverse/GameVerse" target="_blank" rel="noreferrer"><svg class="resource-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg>Dataset repository</a></div></div></section>
     <section class="section citation-section" id="citation"><div><div class="section-label"><span>08</span> CITATION</div><h2>Reference GameVerse.</h2></div><div class="citation-code"><button id="copy-citation" type="button">Copy BibTeX</button><pre id="bibtex">@inproceedings{he2026gameverse,
   title = {GameVerse: A Minute-Scale Gameplay Dataset
            for Long-Horizon Interactive World Modeling},
@@ -108,8 +108,8 @@
   year = {2026}
 }</pre><p class="caption">Paper link and proceedings details will be added when available.</p><span id="copy-status" class="sr-only" role="status"></span></div></section>
   </main>
-  <footer><a class="brand" href="#top"><img class="brand-icon" src="assets/gameverse-logo.png" alt="" width="32" height="32">GameVerse <span>↗</span></a><p>A longer horizon for interactive world modeling.</p><span class="mono">NEURIPS 2026</span></footer>
-  <dialog id="clip-dialog" class="clip-dialog"><button id="close-dialog" class="dialog-close" aria-label="Close clip inspection">×</button><div class="dialog-header"><span class="eyebrow">DATASET RECORDING</span><h2 id="dialog-title"></h2><p id="dialog-meta"></p></div><div class="dialog-layout"><video id="dialog-video" controls playsinline preload="none"></video><div><h3>Annotation excerpt</h3><p id="dialog-range"></p><div id="dialog-annotations"></div><a id="dialog-source" class="text-link" target="_blank" rel="noreferrer">Original source ↗</a></div></div><div class="dialog-navigation"><button id="previous-clip" type="button">← Previous</button><span id="dialog-position" class="mono"></span><button id="next-clip" type="button">Next →</button></div><p class="caption">Short excerpts of retained recordings. Original clip length and preview length are listed separately. Captions describe the stated source interval.</p></dialog>
+  <footer><a class="brand" href="#top"><img class="brand-icon" src="assets/gameverse-logo.png" alt="" width="32" height="32">GameVerse</a><p>A longer horizon for interactive world modeling.</p><span class="mono">NEURIPS 2026</span></footer>
+  <dialog id="clip-dialog" class="clip-dialog"><button id="close-dialog" class="dialog-close" aria-label="Close clip inspection">×</button><div class="dialog-header"><span class="eyebrow">DATASET RECORDING</span><h2 id="dialog-title"></h2><p id="dialog-meta"></p></div><div class="dialog-layout"><video id="dialog-video" controls playsinline preload="none"></video><div><h3>Annotation excerpt</h3><p id="dialog-range"></p><div id="dialog-annotations"></div><a id="dialog-source" class="text-link" target="_blank" rel="noreferrer">Original source</a></div></div><div class="dialog-navigation"><button id="previous-clip" type="button">← Previous</button><span id="dialog-position" class="mono"></span><button id="next-clip" type="button">Next →</button></div><p class="caption">Short excerpts of retained recordings. Original clip length and preview length are listed separately. Captions describe the stated source interval.</p></dialog>
   <div id="load-error" role="alert" hidden>Dataset information could not load. Please refresh the page.</div>
 </body>
 </html>

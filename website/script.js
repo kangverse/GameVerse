@@ -2,7 +2,7 @@
 const $ = id => document.getElementById(id);
 const number = n => new Intl.NumberFormat('en-US').format(n);
 const escapeHTML = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const SITE_VERSION = '20261010-results-prompts';
+const SITE_VERSION = '20261011-resource-icons';
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 const conserveData = !!navigator.connection?.saveData;
 let cases = [], stats, continuity, researchResults, heroIndex = 6, heroPaused = reduced.matches || conserveData;
@@ -34,7 +34,7 @@ function renderGallery() {
   for(const c of visibleCases()) {
     const button = document.createElement('button'); button.className='game-card'; button.type='button';
     button.dataset.clip=c.clip_id; button.setAttribute('aria-label',`Inspect ${c.game}, ${c.preview_duration_s} second preview of a ${Math.round(c.duration_s)} second recording`);
-    button.innerHTML=`<div class="card-media"><img src="${escapeHTML(c.poster)}" alt="${escapeHTML(c.game)} gameplay" loading="lazy" width="960" height="540"><video muted loop playsinline preload="none" aria-hidden="true" data-src="${escapeHTML(c.preview)}"></video><span class="view-tag">${c.view_group==='first'?'First person':'Third person'}</span><span class="hover-play" aria-hidden="true">Playing preview</span><span class="open-icon" aria-hidden="true">↗</span></div><div class="card-info"><h3>${escapeHTML(c.game)}</h3></div><p class="card-sub"><span class="preview-length">${c.preview_duration_s}s preview</span> · ${Math.round(c.duration_s)}s source clip<br>${escapeHTML(c.scene_label)}</p>`;
+    button.innerHTML=`<div class="card-media"><img src="${escapeHTML(c.poster)}" alt="${escapeHTML(c.game)} gameplay" loading="lazy" width="960" height="540"><video muted loop playsinline preload="none" aria-hidden="true" data-src="${escapeHTML(c.preview)}"></video><span class="view-tag">${c.view_group==='first'?'First person':'Third person'}</span><span class="hover-play" aria-hidden="true">Playing preview</span><span class="open-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></span></div><div class="card-info"><h3>${escapeHTML(c.game)}</h3></div><p class="card-sub"><span class="preview-length">${c.preview_duration_s}s preview</span> · ${Math.round(c.duration_s)}s source clip<br>${escapeHTML(c.scene_label)}</p>`;
     const v=button.querySelector('video'); let previewRequested=false;
     function play() {
       if(reduced.matches || conserveData || document.hidden)return;
