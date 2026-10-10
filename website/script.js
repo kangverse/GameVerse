@@ -2,7 +2,7 @@
 const $ = id => document.getElementById(id);
 const number = n => new Intl.NumberFormat('en-US').format(n);
 const escapeHTML = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const SITE_VERSION = '20261010-camera-controls';
+const SITE_VERSION = '20261010-results-prompts';
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 const conserveData = !!navigator.connection?.saveData;
 let cases = [], stats, continuity, researchResults, heroIndex = 6, heroPaused = reduced.matches || conserveData;
@@ -180,7 +180,7 @@ function renderResultScene() {
     $('result-frames').append(figure);
   }
   $('result-caption').textContent=resultType==='camera'?'Original generated frames · Left: movement control · Right: camera rotation · Select a frame to view it at full resolution.':'Original generated frames · Select a frame to view it at full resolution.';
-  $('result-source').textContent=result.source_file;
+  $('result-prompt').textContent=result.prompt;
 }
 function renderResult(type) {
   resultType=type;$('result-scene').replaceChildren();

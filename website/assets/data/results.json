@@ -39,7 +39,8 @@
         ],
         "paper_figure": "ours_ltx2_video_vbench.pdf",
         "paper_row": 1,
-        "match_method": "Manual visual match to scene, character and composition in the paper figure."
+        "match_method": "Manual visual match to scene, character and composition in the paper figure.",
+        "prompt": "Third-person gameplay footage from Red Dead Redemption 2 showing a character walking along a dirt trail through a sunlit grassy meadow with scattered trees and distant mountains. The character encounters horse riders and a covered wagon while approaching a railway crossing with a wooden signpost."
       },
       {
         "group": "continuity",
@@ -78,7 +79,8 @@
         ],
         "paper_figure": "ours_ltx2_video_vbench.pdf",
         "paper_row": 2,
-        "match_method": "Manual visual match to scene, character and composition in the paper figure."
+        "match_method": "Manual visual match to scene, character and composition in the paper figure.",
+        "prompt": "Third-person gameplay footage from a historical action game showing a hooded protagonist walking through a sun-drenched medieval Middle Eastern city during golden hour. The character navigates narrow cobblestone pathways lined with sandstone buildings, palm trees, and NPC pedestrians, transitioning from a residential alley into a tree-lined garden path and finally into a bustling market square."
       },
       {
         "group": "continuity",
@@ -117,7 +119,8 @@
         ],
         "paper_figure": "ours_ltx2_video_vbench.pdf",
         "paper_row": 3,
-        "match_method": "Manual visual match to scene, character and composition in the paper figure."
+        "match_method": "Manual visual match to scene, character and composition in the paper figure.",
+        "prompt": "Gameplay footage from a historical open-world game depicting a foggy morning walk through a Victorian-era city. The player character traverses cobblestone streets, enters Guiteau Square, climbs an overlook to view a cemetery, then exits to observe a vintage electric tram passing by."
       },
       {
         "group": "continuity",
@@ -156,7 +159,8 @@
         ],
         "paper_figure": "ours_ltx2_video_vbench.pdf",
         "paper_row": 4,
-        "match_method": "Manual visual match to scene, character and composition in the paper figure."
+        "match_method": "Manual visual match to scene, character and composition in the paper figure.",
+        "prompt": "Third-person gameplay footage from a Western-themed open world game showing a character riding a horse through mountainous wilderness. The journey begins in a grassy forest, passes a serene alpine lake, and ascends into rocky high-altitude terrain with patches of snow."
       },
       {
         "group": "continuity",
@@ -195,7 +199,8 @@
         ],
         "paper_figure": "ours_ltx2_video_vbench.pdf",
         "paper_row": 5,
-        "match_method": "Manual visual match to scene, character and composition in the paper figure."
+        "match_method": "Manual visual match to scene, character and composition in the paper figure.",
+        "prompt": "A cinematic game engine sequence showing a horse-drawn carriage traveling along a dirt path beside a river during golden hour. The scene transitions from darker dusk lighting to warm sunset colors as the carriage navigates around a large tree and passes a riverside campsite."
       },
       {
         "group": "continuity",
@@ -234,7 +239,8 @@
         ],
         "paper_figure": "ours_ltx2_video_vbench.pdf",
         "paper_row": 6,
-        "match_method": "Manual visual match to scene, character and composition in the paper figure."
+        "match_method": "Manual visual match to scene, character and composition in the paper figure.",
+        "prompt": "Nighttime driving gameplay footage on an elevated urban highway, rendered in a high-fidelity game engine. The camera moves smoothly through moderate traffic, passing modern glass office buildings and illuminated billboards. The scene features artificial lighting from streetlights and vehicle headlights against a dark sky, with overhead highway signs and guardrails defining the corridor."
       }
     ],
     "camera": [
@@ -276,7 +282,8 @@
         "paper_figure": "i2v_pose.pdf",
         "paper_row": 1,
         "match_method": "Manual visual match to scene, character and composition in the paper figure.",
-        "control_overlay": "Original Move (left) and Rotate (right) joystick overlays embedded in the evaluation video."
+        "control_overlay": "Original Move (left) and Rotate (right) joystick overlays embedded in the evaluation video.",
+        "prompt": "A cinematic drive through a winding mountain road at dawn in a video game environment (GTA V). The scene features misty valleys, pine trees, and power lines along the roadside, with the sky transitioning from deep blue to warm sunrise colors. No other vehicles or pedestrians are present, creating a serene, isolated atmosphere."
       },
       {
         "group": "camera",
@@ -316,7 +323,8 @@
         "paper_figure": "i2v_pose.pdf",
         "paper_row": 2,
         "match_method": "Manual visual match to scene, character and composition in the paper figure.",
-        "control_overlay": "Original Move (left) and Rotate (right) joystick overlays embedded in the evaluation video."
+        "control_overlay": "Original Move (left) and Rotate (right) joystick overlays embedded in the evaluation video.",
+        "prompt": "First-person perspective from a horse-drawn wagon traveling through a prairie landscape in a video game (Red Dead Redemption 2). The journey begins in a narrow rocky canyon, emerges into open grasslands, passes another wagon, and continues along a winding dirt trail lined with telegraph poles through rolling hills."
       },
       {
         "group": "camera",
@@ -356,7 +364,8 @@
         "paper_figure": "i2v_pose.pdf",
         "paper_row": 3,
         "match_method": "Manual visual match to scene, character and composition in the paper figure.",
-        "control_overlay": "Original Move (left) and Rotate (right) joystick overlays embedded in the evaluation video."
+        "control_overlay": "Original Move (left) and Rotate (right) joystick overlays embedded in the evaluation video.",
+        "prompt": "A cowboy rides a horse through foggy rural farmland in a video game (Red Dead Redemption 2), passing wooden fences, farm buildings, and entering a horse corral where he dismounts. The atmosphere is misty and muted with soft morning light diffused through heavy fog."
       },
       {
         "group": "camera",
@@ -396,7 +405,8 @@
         "paper_figure": "i2v_pose.pdf",
         "paper_row": 4,
         "match_method": "Manual visual match to scene, character and composition in the paper figure.",
-        "control_overlay": "Original Move (left) and Rotate (right) joystick overlays embedded in the evaluation video."
+        "control_overlay": "Original Move (left) and Rotate (right) joystick overlays embedded in the evaluation video.",
+        "prompt": "Third-person gameplay footage from a Western-themed open world game showing two characters on horseback traversing a mountain forest trail. The player follows a pack horse carrying a large deer carcass as they ride from an open valley overlook through dense pine woods and emerge into a hunting camp with a hanging animal carcass."
       },
       {
         "group": "camera",
@@ -436,7 +446,8 @@
         "paper_figure": "i2v_pose.pdf",
         "paper_row": 5,
         "match_method": "Manual visual match to scene, character and composition in the paper figure.",
-        "control_overlay": "Original Move (left) and Rotate (right) joystick overlays embedded in the evaluation video."
+        "control_overlay": "Original Move (left) and Rotate (right) joystick overlays embedded in the evaluation video.",
+        "prompt": "Third-person gameplay footage of a character in a dark robe walking through a snowy, atmospheric forest toward ancient stone ruins. The scene features overcast winter lighting, dense pine trees, and a large crumbling tower in the distance, rendered in high-quality game engine graphics."
       },
       {
         "group": "camera",
@@ -476,7 +487,8 @@
         "paper_figure": "i2v_pose.pdf",
         "paper_row": 6,
         "match_method": "Manual visual match to scene, character and composition in the paper figure.",
-        "control_overlay": "Original Move (left) and Rotate (right) joystick overlays embedded in the evaluation video."
+        "control_overlay": "Original Move (left) and Rotate (right) joystick overlays embedded in the evaluation video.",
+        "prompt": "First-person gameplay footage from a cyberpunk video game showing a dusk walk through a futuristic urban park. The player moves from a tree-lined promenade past an informal wooded encampment, then through a neon-lit plaza beneath massive concrete overpasses with scattered pedestrians and vendor stalls."
       }
     ]
   }

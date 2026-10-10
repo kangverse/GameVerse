@@ -12,7 +12,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=world-orbit"><link rel="icon" href="assets/favicon.ico?v=world-orbit"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=camera-controls"><script defer src="script.js?v=camera-controls"></script>
+  <link rel="stylesheet" href="styles.css?v=results-prompts"><script defer src="script.js?v=results-prompts"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -90,7 +90,7 @@
       <label class="result-scene-label" for="result-scene">Scenario <select id="result-scene" aria-label="Choose a generation scenario"><option value="0">Natural exploration</option></select></label>
       <div id="result-panel" role="tabpanel" tabindex="0"><div id="result-frames" class="result-frames"></div></div>
       <p class="caption" id="result-caption">Screenshots from the original camera-conditioned evaluation videos.</p>
-      <details class="result-details"><summary>Source recording</summary><p id="result-source" class="mono"></p></details>
+      <div class="result-prompt" aria-labelledby="result-prompt-label"><h3 id="result-prompt-label" class="eyebrow">Text prompt</h3><p id="result-prompt"></p></div>
     </section>
     <section class="section pipeline-section" id="pipeline">
       <div class="section-heading"><div><div class="section-label"><span>06</span> DATA CONSTRUCTION</div><h2>Gameplay to supervision.</h2></div></div>
