@@ -6,7 +6,9 @@ The verified final video selection contains **69,678 clips**, **1,655.05 video h
 
 ## Project website
 
-The new project website is in [`website/`](website/), with nine attributed gameplay recording excerpts, duration distributions, structured annotation examples, and resource links.
+The project website is in [`website/`](website/). Its layout adapts to desktop, tablet, and phone widths, with resource links and dataset scale near the top. Explore nine attributed recording previews, a complete two-minute clip with seekable keyframes, captions that follow the recorded video time, camera trajectory projections, and qualitative generation examples from the paper.
+
+Recording cards distinguish preview length from original clip length. Caption gaps are marked while the full-duration refresh is in progress. The trajectory overview shows normalized stored camera centers independently of video playback; it does not imply verified timestamp alignment. Generation figures are labeled separately from dataset recordings.
 
 The project website is published at **https://kangverse.github.io/GameVerse/**. Updates to `website/` on `main` automatically deploy through GitHub Pages. The eventual preferred address is https://gameverse.github.io/GameVerse/, pending access to that account or organization.
 

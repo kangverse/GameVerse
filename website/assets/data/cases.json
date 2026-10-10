@@ -67,24 +67,25 @@
   },
   {
     "game": "Red Dead Redemption 2",
-    "clip_id": "-Ejt1pe7YwA_0017458_0018516",
+    "clip_id": "2-5JHq_vN7g_0003750_0010950",
     "view_group": "third",
     "view_label": "third person follow",
-    "scene_label": "indoor residential",
-    "duration_s": 17.633685833333335,
+    "scene_label": "forest",
+    "duration_s": 120.0024,
     "preview_duration_s": 12,
-    "preview": "assets/media/world-04.mp4",
-    "poster": "assets/media/world-04.jpg",
-    "source_url": "https://www.youtube.com/watch?v=-Ejt1pe7YwA",
+    "preview_start_s": 0.0,
+    "preview": "assets/media/world-04-rdr-forest.mp4",
+    "poster": "assets/media/world-04-rdr-forest.jpg",
+    "source_url": "https://www.youtube.com/watch?v=2-5JHq_vN7g",
     "annotation_range": [
       0.0,
-      5.0
+      17.0
     ],
     "annotation": {
-      "static_scene": "A narrow cabin entryway corridor with rough wooden walls, a wooden deck floor, and structural support beams.",
-      "subject_motion": "The character in period clothing opens the cabin door and walks forward through a narrow wooden corridor.",
-      "environment_motion": "The scene is static as the character moves from the exterior into the enclosed entryway.",
-      "camera_description": "A stabilized third-person perspective at chest height following the character from behind with a smooth walking motion."
+      "static_scene": "A wide-open forest clearing with a dirt trail, tall deciduous trees, and lush green undergrowth under direct midday sunlight.",
+      "subject_motion": "The protagonist walks steadily through tall grass toward a broken wagon and continues along a dirt path.",
+      "environment_motion": "The environment is static, with the character moving past a stationary damaged wooden wagon and decaying logs.",
+      "camera_description": "A stabilized third-person perspective at chest height, following the character from behind while walking forward."
     }
   },
   {
