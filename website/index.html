@@ -12,7 +12,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=world-orbit"><link rel="icon" href="assets/favicon.ico?v=world-orbit"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=responsive-worlds"><script defer src="script.js?v=responsive-worlds-fast-seek"></script>
+  <link rel="stylesheet" href="styles.css?v=paper-video-frames"><script defer src="script.js?v=paper-video-frames"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -85,12 +85,13 @@
       <div class="trajectory-layout" id="trajectory-overview"><div><span class="eyebrow">CAMERA GEOMETRY</span><h3>A path through the world.</h3><p>Explore the estimated camera centers from the same retained clip. Switch the projection to see the stored trajectory from another plane.</p><div class="projection-tabs" role="group" aria-label="Camera trajectory projection"><button data-plane="xz" class="active" aria-pressed="true">XZ</button><button data-plane="xy" aria-pressed="false">XY</button><button data-plane="yz" aria-pressed="false">YZ</button></div><p class="caption">Independent trajectory overview · Relative scale · Video timestamp alignment pending confirmation</p></div><div class="trajectory-chart"><svg id="trajectory-svg" viewBox="0 0 540 240" role="img" aria-labelledby="trajectory-title trajectory-description"><title id="trajectory-title">Estimated camera-center trajectory</title><desc id="trajectory-description">Normalized stored camera centers. The path is shown independently of video playback.</desc></svg><p class="caption" id="trajectory-caption"></p></div></div>
     </section>
     <section class="section results-section" id="results">
-      <div class="section-heading"><div><div class="section-label"><span>05</span> RESEARCH RESULTS</div><h2>From recorded worlds<br>to generated ones.</h2></div><p>Qualitative image-to-video examples from the paper, using a model fine-tuned on GameVerse with camera trajectories and structured captions.</p></div>
+      <div class="section-heading"><div><div class="section-label"><span>05</span> RESEARCH RESULTS</div><h2>From recorded worlds<br>to generated ones.</h2></div><p>Revisit the scenarios shown in our paper through full-resolution screenshots from the original camera-conditioned generation videos.</p></div>
       <div class="result-tabs" role="tablist" aria-label="Generation examples"><button role="tab" data-result="continuity" aria-selected="true" class="active">Scene continuity</button><button role="tab" data-result="camera" aria-selected="false">Camera-conditioned generation</button></div>
       <label class="result-scene-label" for="result-scene">Scenario <select id="result-scene" aria-label="Choose a generation scenario"><option value="0">Natural exploration</option></select></label>
-      <div class="result-labels"><span>Input frame</span><span>Generated sequence →</span></div>
-      <div id="result-panel" role="tabpanel" tabindex="0"><img id="result-figure" src="assets/media/research-continuity-1.jpg" alt="Paper figure: input frame followed by generated frames during natural exploration" loading="lazy" width="1800" height="207"></div>
-      <p class="caption" id="result-caption">Model-generated examples from the paper · First column: input frame · Remaining columns: generated progression · The orange outline marks input frames</p>
+      <div class="result-labels"><span>Generated progression</span><span>0 → 20 seconds</span></div>
+      <div id="result-panel" role="tabpanel" tabindex="0"><div id="result-frames" class="result-frames"></div></div>
+      <p class="caption" id="result-caption">Screenshots from the original camera-conditioned evaluation videos.</p>
+      <details class="result-details"><summary>Source recording</summary><p id="result-source" class="mono"></p></details>
     </section>
     <section class="section pipeline-section" id="pipeline">
       <div class="section-heading"><div><div class="section-label"><span>06</span> DATA CONSTRUCTION</div><h2>Gameplay to supervision.</h2></div></div>

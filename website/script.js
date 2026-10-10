@@ -2,17 +2,13 @@
 const $ = id => document.getElementById(id);
 const number = n => new Intl.NumberFormat('en-US').format(n);
 const escapeHTML = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const SITE_VERSION = '20261010-responsive-worlds-fast-seek';
+const SITE_VERSION = '20261010-paper-video-frames';
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 const conserveData = !!navigator.connection?.saveData;
-let cases = [], stats, continuity, heroIndex = 6, heroPaused = reduced.matches || conserveData;
+let cases = [], stats, continuity, researchResults, heroIndex = 6, heroPaused = reduced.matches || conserveData;
 let chartMode = 'clips', activeField = 'static_scene', galleryFilter = 'all', currentClip, returnFocus;
 let heroVisible = true, annotationPosition = 0, resultType = 'continuity';
 const fieldNames = {static_scene:'Scene structure',subject_motion:'Player behavior',environment_motion:'World dynamics',camera_description:'Camera viewpoint & motion'};
-const resultScenes = {
-  continuity:['Natural exploration','Urban interaction','Misty streets','Horseback riding','Carriage travel','Nighttime driving'],
-  camera:['Road navigation','First-person riding','Field exploration','Mountain riding','Snowy forest','Urban scene']
-};
 const timeLabel = time => `${Math.floor(time / 60)}:${String(Math.floor(time % 60)).padStart(2,'0')}`;
 
 function chooseHero(index) {
@@ -176,14 +172,19 @@ document.querySelectorAll('[data-plane]').forEach(b=>b.addEventListener('click',
   document.querySelectorAll('[data-plane]').forEach(x=>{x.classList.toggle('active',x===b);x.setAttribute('aria-pressed',String(x===b));});renderTrajectory(b.dataset.plane);
 }));
 function renderResultScene() {
-  const index=Number($('result-scene').value||0);
-  $('result-figure').src=`assets/media/research-${resultType}-${index+1}.jpg`;
-  $('result-figure').alt=`${resultScenes[resultType][index]}: input frame followed by four generated frames from the paper`;
-  $('result-caption').textContent=resultType==='camera'?'Model-generated examples from the paper · First column: input frame · Remaining columns: generated progression with the original blue camera-control overlays':'Model-generated examples from the paper · First column: input frame (orange outline) · Remaining columns: generated progression';
+  const result=researchResults.groups[resultType][Number($('result-scene').value||0)];
+  $('result-frames').replaceChildren();
+  for(const frame of result.frames) {
+    const figure=document.createElement('figure');figure.className='result-frame';
+    figure.innerHTML=`<a href="${escapeHTML(frame.src)}" target="_blank" rel="noreferrer" aria-label="Open ${escapeHTML(result.label)} generated frame at ${frame.time_s} seconds"><img src="${escapeHTML(frame.src)}" alt="${escapeHTML(result.label)}: decoded output frame at ${frame.time_s} seconds" loading="lazy" width="960" height="544"></a><figcaption>${frame.time_s===0?'Start · ':''}${frame.time_s} s</figcaption>`;
+    $('result-frames').append(figure);
+  }
+  $('result-caption').textContent='Full-frame screenshots from the original 20-second camera-conditioned evaluation video · 0 s is the first decoded output frame · Select any frame to view it at full resolution.';
+  $('result-source').textContent=result.source_file;
 }
 function renderResult(type) {
   resultType=type;$('result-scene').replaceChildren();
-  resultScenes[type].forEach((label,index)=>{const o=document.createElement('option');o.value=index;o.textContent=label;$('result-scene').append(o);});
+  researchResults.groups[type].forEach((result,index)=>{const o=document.createElement('option');o.value=index;o.textContent=result.label;$('result-scene').append(o);});
   renderResultScene();
 }
 setupTabs([...document.querySelectorAll('[data-result]')],'result-panel',b=>renderResult(b.dataset.result));
@@ -200,13 +201,13 @@ function updateNavigation(){scrollPending=false;let current;for(const item of na
 window.addEventListener('scroll',()=>{if(!scrollPending){scrollPending=true;requestAnimationFrame(updateNavigation);}},{passive:true});
 async function init() {
   try {
-    const result=await Promise.all(['statistics','cases','continuity'].map(async name=>{const response=await fetch(`assets/data/${name}.json?v=${SITE_VERSION}`);if(!response.ok)throw Error(name);return response.json();}));
-    [stats,cases,continuity]=result;
+    const result=await Promise.all(['statistics','cases','continuity','results'].map(async name=>{const response=await fetch(`assets/data/${name}.json?v=${SITE_VERSION}`);if(!response.ok)throw Error(name);return response.json();}));
+    [stats,cases,continuity,researchResults]=result;
     $('stat-clips').textContent=number(stats.clips);$('stat-hours').textContent=number(Math.round(stats.hours));$('stat-frames').textContent=(stats.frames/1e6).toFixed(1)+'M';$('stat-two').textContent=number(stats.two_minute_clips);
     $('two-minute-share').textContent=(stats.two_minute_hours/stats.hours*100).toFixed(1)+'%';
     $('horizon-description').textContent=`${number(stats.two_minute_clips)} continuous two-minute recordings contribute ${number(Math.round(stats.two_minute_hours))} hours of gameplay.`;
     $('statistics-source').textContent=`Source: final retained clip manifest · ${stats.snapshot_date}. Video-track durations and encoded frame counts are measured directly. Two-minute clips: 120 ± 0.05 s. Displayed hours are rounded.`;
-    for(const [index,label] of [[6,'Tsushima'],[4,'Elden Ring'],[8,'Odyssey'],[1,'GTA V'],[5,'Forza']]) {
+    for(const [index,label] of [[6,'Tsushima'],[4,'Elden Ring'],[8,'Odyssey'],[1,'GTA V'],[5,'Avatar']]) {
       const b=document.createElement('button');b.type='button';b.dataset.index=index;b.textContent=label;
       b.setAttribute('aria-label',`Show ${cases[index].game} preview`);b.addEventListener('click',()=>chooseHero(index));$('hero-choices').append(b);
     }

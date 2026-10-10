@@ -111,25 +111,26 @@
     }
   },
   {
-    "game": "Forza Horizon 5",
-    "clip_id": "2DRBbHpkd54_0021021_0026238",
+    "game": "Avatar: Frontiers of Pandora",
+    "clip_id": "0d1U1JO5i4c_0003750_0007383",
     "view_group": "first",
     "view_label": "first person",
-    "scene_label": "highway road",
-    "duration_s": 86.95173833333334,
+    "scene_label": "forest",
+    "duration_s": 60.551210833333336,
     "preview_duration_s": 12,
-    "preview": "assets/media/world-06.mp4",
-    "poster": "assets/media/world-06.jpg",
-    "source_url": "https://www.youtube.com/watch?v=2DRBbHpkd54",
+    "preview_start_s": 0.0,
+    "preview": "assets/media/world-06-avatar.mp4",
+    "poster": "assets/media/world-06-avatar.jpg",
+    "source_url": "https://www.youtube.com/watch?v=0d1U1JO5i4c",
     "annotation_range": [
       0.0,
-      12.0
+      22.0
     ],
     "annotation": {
-      "static_scene": "A wide-open rural highway with an asphalt surface, sparse vegetation, and distant hills under direct natural lighting.",
-      "subject_motion": "The player navigates tight rural curves at low speed before rapidly accelerating on a straight section.",
-      "environment_motion": "A silver car remains parked on the roadside shoulder as the player passes.",
-      "camera_description": "The camera is at eye-level in a stabilized first-person perspective, following the vehicle's motion as it corners and accelerates."
+      "static_scene": "A narrow enclosed dirt trail surrounded by dense alien undergrowth, featuring purple flowering ferns and a tall bamboo-like grove to the left.",
+      "subject_motion": "The player walks steadily forward through dense alien jungle vegetation, pushing past large leaves.",
+      "environment_motion": "The scene is still, with the player passing by massive glossy green leaves and purple bioluminescent ferns.",
+      "camera_description": "The camera is a stabilized first-person perspective at eye level, moving forward in a steady walking motion."
     }
   },
   {

@@ -1,0 +1,477 @@
+{
+  "description": "Full-frame screenshots decoded directly from the camera-conditioned 20-second evaluation videos matching the scenarios in the paper. Time zero is the first decoded output frame, not a separately verified input image.",
+  "groups": {
+    "continuity": [
+      {
+        "group": "continuity",
+        "label": "Natural exploration",
+        "source_file": "walking_661-QC0NUQ4_0339699_0346899_i2v_with_cam.mp4",
+        "source_sha256": "cb5b3b4df7a34eda91c0b5c8f9ebe931a6c518ec3a698ce08df76e769a760590",
+        "duration_s": 20.041667,
+        "fps": 24,
+        "frame_count": 481,
+        "frames": [
+          {
+            "src": "assets/media/result-continuity-1-0.jpg",
+            "time_s": 0.0,
+            "frame_index": 0
+          },
+          {
+            "src": "assets/media/result-continuity-1-1.jpg",
+            "time_s": 5.0,
+            "frame_index": 120
+          },
+          {
+            "src": "assets/media/result-continuity-1-2.jpg",
+            "time_s": 10.0,
+            "frame_index": 240
+          },
+          {
+            "src": "assets/media/result-continuity-1-3.jpg",
+            "time_s": 15.0,
+            "frame_index": 360
+          },
+          {
+            "src": "assets/media/result-continuity-1-4.jpg",
+            "time_s": 20.0,
+            "frame_index": 480
+          }
+        ],
+        "paper_figure": "ours_ltx2_video_vbench.pdf",
+        "paper_row": 1,
+        "match_method": "Manual visual match to scene, character and composition in the paper figure."
+      },
+      {
+        "group": "continuity",
+        "label": "Urban interaction",
+        "source_file": "walking_ixIOARKpjfs_0137202_0142206_i2v_with_cam.mp4",
+        "source_sha256": "912b1cbc09d7b272a8b58149d616d1ee1e2d2e85e9a98fe117c1340bab1c0b48",
+        "duration_s": 20.041667,
+        "fps": 24,
+        "frame_count": 481,
+        "frames": [
+          {
+            "src": "assets/media/result-continuity-2-0.jpg",
+            "time_s": 0.0,
+            "frame_index": 0
+          },
+          {
+            "src": "assets/media/result-continuity-2-1.jpg",
+            "time_s": 5.0,
+            "frame_index": 120
+          },
+          {
+            "src": "assets/media/result-continuity-2-2.jpg",
+            "time_s": 10.0,
+            "frame_index": 240
+          },
+          {
+            "src": "assets/media/result-continuity-2-3.jpg",
+            "time_s": 15.0,
+            "frame_index": 360
+          },
+          {
+            "src": "assets/media/result-continuity-2-4.jpg",
+            "time_s": 20.0,
+            "frame_index": 480
+          }
+        ],
+        "paper_figure": "ours_ltx2_video_vbench.pdf",
+        "paper_row": 2,
+        "match_method": "Manual visual match to scene, character and composition in the paper figure."
+      },
+      {
+        "group": "continuity",
+        "label": "Misty streets",
+        "source_file": "walking_sYeL1qvE9jo_0146318_0153518_i2v_with_cam.mp4",
+        "source_sha256": "5042d31071139ae6c3c8577ad1a83f40453d712e19dc7b822ff78c275b43f242",
+        "duration_s": 20.041667,
+        "fps": 24,
+        "frame_count": 481,
+        "frames": [
+          {
+            "src": "assets/media/result-continuity-3-0.jpg",
+            "time_s": 0.0,
+            "frame_index": 0
+          },
+          {
+            "src": "assets/media/result-continuity-3-1.jpg",
+            "time_s": 5.0,
+            "frame_index": 120
+          },
+          {
+            "src": "assets/media/result-continuity-3-2.jpg",
+            "time_s": 10.0,
+            "frame_index": 240
+          },
+          {
+            "src": "assets/media/result-continuity-3-3.jpg",
+            "time_s": 15.0,
+            "frame_index": 360
+          },
+          {
+            "src": "assets/media/result-continuity-3-4.jpg",
+            "time_s": 20.0,
+            "frame_index": 480
+          }
+        ],
+        "paper_figure": "ours_ltx2_video_vbench.pdf",
+        "paper_row": 3,
+        "match_method": "Manual visual match to scene, character and composition in the paper figure."
+      },
+      {
+        "group": "continuity",
+        "label": "Horseback riding",
+        "source_file": "riding_De7uOFoHyi4_0945897_0953097_i2v_with_cam.mp4",
+        "source_sha256": "62722a8e1618a40f5fa18f0694b1b68a40798306dca70c17d99280b82998004c",
+        "duration_s": 20.041667,
+        "fps": 24,
+        "frame_count": 481,
+        "frames": [
+          {
+            "src": "assets/media/result-continuity-4-0.jpg",
+            "time_s": 0.0,
+            "frame_index": 0
+          },
+          {
+            "src": "assets/media/result-continuity-4-1.jpg",
+            "time_s": 5.0,
+            "frame_index": 120
+          },
+          {
+            "src": "assets/media/result-continuity-4-2.jpg",
+            "time_s": 10.0,
+            "frame_index": 240
+          },
+          {
+            "src": "assets/media/result-continuity-4-3.jpg",
+            "time_s": 15.0,
+            "frame_index": 360
+          },
+          {
+            "src": "assets/media/result-continuity-4-4.jpg",
+            "time_s": 20.0,
+            "frame_index": 480
+          }
+        ],
+        "paper_figure": "ours_ltx2_video_vbench.pdf",
+        "paper_row": 4,
+        "match_method": "Manual visual match to scene, character and composition in the paper figure."
+      },
+      {
+        "group": "continuity",
+        "label": "Carriage travel",
+        "source_file": "driving_9pTT6867XJ4_1204601_1211801_i2v_with_cam.mp4",
+        "source_sha256": "4153a8f7b376bca8ab00f11f2e867ebc0ef7163a23bcdb25b4f9a14c7c422f2f",
+        "duration_s": 20.041667,
+        "fps": 24,
+        "frame_count": 481,
+        "frames": [
+          {
+            "src": "assets/media/result-continuity-5-0.jpg",
+            "time_s": 0.0,
+            "frame_index": 0
+          },
+          {
+            "src": "assets/media/result-continuity-5-1.jpg",
+            "time_s": 5.0,
+            "frame_index": 120
+          },
+          {
+            "src": "assets/media/result-continuity-5-2.jpg",
+            "time_s": 10.0,
+            "frame_index": 240
+          },
+          {
+            "src": "assets/media/result-continuity-5-3.jpg",
+            "time_s": 15.0,
+            "frame_index": 360
+          },
+          {
+            "src": "assets/media/result-continuity-5-4.jpg",
+            "time_s": 20.0,
+            "frame_index": 480
+          }
+        ],
+        "paper_figure": "ours_ltx2_video_vbench.pdf",
+        "paper_row": 5,
+        "match_method": "Manual visual match to scene, character and composition in the paper figure."
+      },
+      {
+        "group": "continuity",
+        "label": "Nighttime driving",
+        "source_file": "driving_06Fw_YMJUfk_0201381_0208581_i2v_with_cam.mp4",
+        "source_sha256": "02bd1159e58927381ca6b745de35a2fb209977f99e5ffb1e57e26cc0ebef8c49",
+        "duration_s": 20.041667,
+        "fps": 24,
+        "frame_count": 481,
+        "frames": [
+          {
+            "src": "assets/media/result-continuity-6-0.jpg",
+            "time_s": 0.0,
+            "frame_index": 0
+          },
+          {
+            "src": "assets/media/result-continuity-6-1.jpg",
+            "time_s": 5.0,
+            "frame_index": 120
+          },
+          {
+            "src": "assets/media/result-continuity-6-2.jpg",
+            "time_s": 10.0,
+            "frame_index": 240
+          },
+          {
+            "src": "assets/media/result-continuity-6-3.jpg",
+            "time_s": 15.0,
+            "frame_index": 360
+          },
+          {
+            "src": "assets/media/result-continuity-6-4.jpg",
+            "time_s": 20.0,
+            "frame_index": 480
+          }
+        ],
+        "paper_figure": "ours_ltx2_video_vbench.pdf",
+        "paper_row": 6,
+        "match_method": "Manual visual match to scene, character and composition in the paper figure."
+      }
+    ],
+    "camera": [
+      {
+        "group": "camera",
+        "label": "Road navigation",
+        "source_file": "driving_AlBfFqQR7Qg_0032550_0039750_i2v_with_cam.mp4",
+        "source_sha256": "38ec006dfbe85ebe3d32baebb399c8db48a0e7cacb2ea52a5d16a981834eaf40",
+        "duration_s": 20.041667,
+        "fps": 24,
+        "frame_count": 481,
+        "frames": [
+          {
+            "src": "assets/media/result-camera-1-0.jpg",
+            "time_s": 0.0,
+            "frame_index": 0
+          },
+          {
+            "src": "assets/media/result-camera-1-1.jpg",
+            "time_s": 5.0,
+            "frame_index": 120
+          },
+          {
+            "src": "assets/media/result-camera-1-2.jpg",
+            "time_s": 10.0,
+            "frame_index": 240
+          },
+          {
+            "src": "assets/media/result-camera-1-3.jpg",
+            "time_s": 15.0,
+            "frame_index": 360
+          },
+          {
+            "src": "assets/media/result-camera-1-4.jpg",
+            "time_s": 20.0,
+            "frame_index": 480
+          }
+        ],
+        "paper_figure": "i2v_pose.pdf",
+        "paper_row": 1,
+        "match_method": "Manual visual match to scene, character and composition in the paper figure."
+      },
+      {
+        "group": "camera",
+        "label": "First-person wagon travel",
+        "source_file": "driving_kYhjoerKWPM_0197183_0204383_i2v_with_cam.mp4",
+        "source_sha256": "d114381007e6578f84882add313212e85bbe302d044cf2d1f2f61a3441a952be",
+        "duration_s": 20.041667,
+        "fps": 24,
+        "frame_count": 481,
+        "frames": [
+          {
+            "src": "assets/media/result-camera-2-0.jpg",
+            "time_s": 0.0,
+            "frame_index": 0
+          },
+          {
+            "src": "assets/media/result-camera-2-1.jpg",
+            "time_s": 5.0,
+            "frame_index": 120
+          },
+          {
+            "src": "assets/media/result-camera-2-2.jpg",
+            "time_s": 10.0,
+            "frame_index": 240
+          },
+          {
+            "src": "assets/media/result-camera-2-3.jpg",
+            "time_s": 15.0,
+            "frame_index": 360
+          },
+          {
+            "src": "assets/media/result-camera-2-4.jpg",
+            "time_s": 20.0,
+            "frame_index": 480
+          }
+        ],
+        "paper_figure": "i2v_pose.pdf",
+        "paper_row": 2,
+        "match_method": "Manual visual match to scene, character and composition in the paper figure."
+      },
+      {
+        "group": "camera",
+        "label": "Field exploration",
+        "source_file": "riding_FiXqmxQ4CwM_0750346_0757546_i2v_with_cam.mp4",
+        "source_sha256": "5ef448af872c72cc011e2662c615710c8e26dc4f529e237b77eef54ef709c36c",
+        "duration_s": 20.041667,
+        "fps": 24,
+        "frame_count": 481,
+        "frames": [
+          {
+            "src": "assets/media/result-camera-3-0.jpg",
+            "time_s": 0.0,
+            "frame_index": 0
+          },
+          {
+            "src": "assets/media/result-camera-3-1.jpg",
+            "time_s": 5.0,
+            "frame_index": 120
+          },
+          {
+            "src": "assets/media/result-camera-3-2.jpg",
+            "time_s": 10.0,
+            "frame_index": 240
+          },
+          {
+            "src": "assets/media/result-camera-3-3.jpg",
+            "time_s": 15.0,
+            "frame_index": 360
+          },
+          {
+            "src": "assets/media/result-camera-3-4.jpg",
+            "time_s": 20.0,
+            "frame_index": 480
+          }
+        ],
+        "paper_figure": "i2v_pose.pdf",
+        "paper_row": 3,
+        "match_method": "Manual visual match to scene, character and composition in the paper figure."
+      },
+      {
+        "group": "camera",
+        "label": "Mountain riding",
+        "source_file": "riding_JlMCyemHmvc_0196789_0203561_i2v_with_cam.mp4",
+        "source_sha256": "30a0b8cb0a6b91e49e7ee23e30cb268676b85027d3f7f968b1b621b01fd1dce3",
+        "duration_s": 20.041667,
+        "fps": 24,
+        "frame_count": 481,
+        "frames": [
+          {
+            "src": "assets/media/result-camera-4-0.jpg",
+            "time_s": 0.0,
+            "frame_index": 0
+          },
+          {
+            "src": "assets/media/result-camera-4-1.jpg",
+            "time_s": 5.0,
+            "frame_index": 120
+          },
+          {
+            "src": "assets/media/result-camera-4-2.jpg",
+            "time_s": 10.0,
+            "frame_index": 240
+          },
+          {
+            "src": "assets/media/result-camera-4-3.jpg",
+            "time_s": 15.0,
+            "frame_index": 360
+          },
+          {
+            "src": "assets/media/result-camera-4-4.jpg",
+            "time_s": 20.0,
+            "frame_index": 480
+          }
+        ],
+        "paper_figure": "i2v_pose.pdf",
+        "paper_row": 4,
+        "match_method": "Manual visual match to scene, character and composition in the paper figure."
+      },
+      {
+        "group": "camera",
+        "label": "Snowy forest",
+        "source_file": "walking_A0C2mBHZIJo_0411164_0418364_i2v_with_cam.mp4",
+        "source_sha256": "090c0950ce52764dc4d138c3da4cb1ae090d37afdaadc30e972d377638164d52",
+        "duration_s": 20.041667,
+        "fps": 24,
+        "frame_count": 481,
+        "frames": [
+          {
+            "src": "assets/media/result-camera-5-0.jpg",
+            "time_s": 0.0,
+            "frame_index": 0
+          },
+          {
+            "src": "assets/media/result-camera-5-1.jpg",
+            "time_s": 5.0,
+            "frame_index": 120
+          },
+          {
+            "src": "assets/media/result-camera-5-2.jpg",
+            "time_s": 10.0,
+            "frame_index": 240
+          },
+          {
+            "src": "assets/media/result-camera-5-3.jpg",
+            "time_s": 15.0,
+            "frame_index": 360
+          },
+          {
+            "src": "assets/media/result-camera-5-4.jpg",
+            "time_s": 20.0,
+            "frame_index": 480
+          }
+        ],
+        "paper_figure": "i2v_pose.pdf",
+        "paper_row": 5,
+        "match_method": "Manual visual match to scene, character and composition in the paper figure."
+      },
+      {
+        "group": "camera",
+        "label": "Urban scene",
+        "source_file": "walking_y2Zl-KXvdSk_0181603_0188803_i2v_with_cam.mp4",
+        "source_sha256": "2ba127442f66f0681ea7b6526a9b75dd27805f08bc5657ce04662c2d3a052e4c",
+        "duration_s": 20.041667,
+        "fps": 24,
+        "frame_count": 481,
+        "frames": [
+          {
+            "src": "assets/media/result-camera-6-0.jpg",
+            "time_s": 0.0,
+            "frame_index": 0
+          },
+          {
+            "src": "assets/media/result-camera-6-1.jpg",
+            "time_s": 5.0,
+            "frame_index": 120
+          },
+          {
+            "src": "assets/media/result-camera-6-2.jpg",
+            "time_s": 10.0,
+            "frame_index": 240
+          },
+          {
+            "src": "assets/media/result-camera-6-3.jpg",
+            "time_s": 15.0,
+            "frame_index": 360
+          },
+          {
+            "src": "assets/media/result-camera-6-4.jpg",
+            "time_s": 20.0,
+            "frame_index": 480
+          }
+        ],
+        "paper_figure": "i2v_pose.pdf",
+        "paper_row": 6,
+        "match_method": "Manual visual match to scene, character and composition in the paper figure."
+      }
+    ]
+  }
+}
