@@ -2,7 +2,7 @@
 const $ = id => document.getElementById(id);
 const number = n => new Intl.NumberFormat('en-US').format(n);
 const escapeHTML = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const SITE_VERSION = '20261010-responsive-worlds';
+const SITE_VERSION = '20261010-responsive-worlds-fast-seek';
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 const conserveData = !!navigator.connection?.saveData;
 let cases = [], stats, continuity, heroIndex = 6, heroPaused = reduced.matches || conserveData;
