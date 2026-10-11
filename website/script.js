@@ -2,7 +2,7 @@
 const $ = id => document.getElementById(id);
 const number = n => new Intl.NumberFormat('en-US').format(n);
 const escapeHTML = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const SITE_VERSION = '20261011-world-effects';
+const SITE_VERSION = '20261011-paper-first';
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 const conserveData = !!navigator.connection?.saveData;
 let cases = [], stats, continuity, researchResults, heroIndex = 6, heroPaused = reduced.matches || conserveData;
@@ -194,7 +194,8 @@ $('copy-citation').addEventListener('click',async()=>{
   catch{const range=document.createRange();range.selectNodeContents($('bibtex'));const selection=window.getSelection();selection.removeAllRanges();selection.addRange(range);$('copy-citation').textContent='Selected — copy text';$('copy-status').textContent='BibTeX selected. Use your keyboard to copy.';}
 });
 document.addEventListener('visibilitychange',()=>{document.documentElement.classList.toggle('effects-paused',document.hidden);if(document.hidden){document.querySelectorAll('video').forEach(v=>v.pause());}else if(!heroPaused && heroVisible && !$('clip-dialog').open)$('hero-video').play().catch(()=>{});});
-new IntersectionObserver(entries=>{heroVisible=entries[0].isIntersecting;$('top').classList.toggle('ambient-paused',!heroVisible);if(!heroVisible)$('hero-video').pause();else if(!heroPaused && !document.hidden && !$('clip-dialog').open && !$('annotation-video').currentTime && !$('continuity-video').currentTime)$('hero-video').play().catch(()=>{});},{threshold:.05}).observe($('hero-video'));
+new IntersectionObserver(entries=>{heroVisible=entries[0].isIntersecting;if(!heroVisible)$('hero-video').pause();else if(!heroPaused && !document.hidden && !$('clip-dialog').open && !$('annotation-video').currentTime && !$('continuity-video').currentTime)$('hero-video').play().catch(()=>{});},{threshold:.05}).observe($('hero-video'));
+new IntersectionObserver(entries=>{$('top').classList.toggle('ambient-paused',!entries[0].isIntersecting);},{threshold:.05}).observe(document.querySelector('.hero-copy'));
 const navSections=[...document.querySelectorAll('.nav nav a')].map(a=>({a,section:document.querySelector(a.getAttribute('href'))}));
 let scrollPending=false;
 function updateNavigation(){scrollPending=false;const maxScroll=document.documentElement.scrollHeight-innerHeight;document.documentElement.style.setProperty('--scroll-progress',maxScroll>0?Math.min(1,Math.max(0,scrollY/maxScroll)):0);let current;for(const item of navSections)if(item.section.getBoundingClientRect().top<=160)current=item;navSections.forEach(item=>{item.a.classList.toggle('active',item===current);if(item===current)item.a.setAttribute('aria-current','location');else item.a.removeAttribute('aria-current');});}

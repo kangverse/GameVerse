@@ -11,7 +11,7 @@
   <link rel="canonical" href="https://kangverse.github.io/GameVerse/">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=world-orbit"><link rel="icon" href="assets/favicon.ico?v=world-orbit"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=world-effects"><script defer src="script.js?v=world-effects"></script>
+  <link rel="stylesheet" href="styles.css?v=paper-first"><script defer src="script.js?v=paper-first"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -29,7 +29,14 @@
           <h1>Game<span>Verse</span></h1>
           <h2>A Minute-Scale Gameplay Dataset for Long-Horizon Interactive World Modeling</h2>
           <p class="hero-intro">Continuous gameplay, camera trajectories, and structured semantics for worlds that keep going.</p>
-          <p class="authors">Kang He · Wenshuo Peng · Chuanhao Li · Zihui Gao · Xiaojie Xu · Zhengyuan Lin · Yuzhe Ding · Donghong Ji · Kaipeng Zhang · Yongtao Ge</p>
+
+        </div>
+        <figure class="paper-overview">
+          <a href="assets/media/paper-overview-pipeline.webp" target="_blank" rel="noreferrer" aria-label="Open the paper construction overview at full resolution"><img src="assets/media/paper-overview-pipeline.webp" alt="Construction pipeline from Figure 1: gameplay videos, scene segmentation, quality filtering, two-minute clips, trajectory annotations and structured captions." width="2560" height="1118" fetchpriority="high" decoding="async"></a>
+          <figcaption>From continuous gameplay to camera trajectories and structured semantics. Select the figure to view it in detail.</figcaption>
+        </figure>
+        <div class="hero-meta">
+          <ul class="author-list" aria-label="Paper authors"><li>Kang He</li><li>Wenshuo Peng</li><li>Chuanhao Li</li><li>Zihui Gao</li><li>Xiaojie Xu</li><li>Zhengyuan Lin</li><li>Yuzhe Ding</li><li>Donghong Ji</li><li>Kaipeng Zhang</li><li>Yongtao Ge</li></ul>
           <div class="resource-links" aria-label="Project resources">
             <span class="resource pending" aria-label="Paper link forthcoming"><span class="resource-label"><svg class="resource-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"/><path d="M14 3v6h6M8 13h8M8 17h6"/></svg>Paper</span><span class="resource-status">Forthcoming</span></span>
             <a class="resource primary" href="https://github.com/kangverse/GameVerse" target="_blank" rel="noreferrer"><span class="resource-label"><svg class="resource-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-15-2 18"/></svg>Code</span></a>
@@ -37,7 +44,14 @@
             <a class="resource" href="#citation"><span class="resource-label"><svg class="resource-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 5H5a2 2 0 0 0-2 2v5h7V5Zm0 7v2a5 5 0 0 1-5 5M21 5h-5a2 2 0 0 0-2 2v5h7V5Zm0 7v2a5 5 0 0 1-5 5"/></svg>Cite</span></a>
           </div>
         </div>
-        <div class="hero-preview">
+        <div class="metrics" aria-label="Verified dataset scale">
+          <div><strong id="stat-clips">69,678</strong><span>video clips</span></div>
+          <div><strong id="stat-hours">1,655</strong><span>gameplay hours</span></div>
+          <div><strong id="stat-frames">349.6M</strong><span>video frames</span></div>
+          <div><strong id="stat-two">40,752</strong><span>two-minute clips</span></div>
+        </div>
+        <div class="hero-preview" aria-labelledby="recording-heading">
+          <div class="preview-heading"><span class="eyebrow">DATASET RECORDING</span><h3 id="recording-heading">Step into the recorded worlds.</h3><p>Browse real retained gameplay from GameVerse.</p></div>
           <div class="hero-screen">
             <video id="hero-video" muted autoplay loop playsinline preload="metadata" poster="assets/media/world-07-ghost-meadow.jpg" aria-label="A real gameplay recording from GameVerse"></video>
             <div class="screen-top"><span class="screen-tag">DATASET RECORDING</span><button id="hero-motion" class="motion-button" type="button" aria-label="Pause background video">Pause Ⅱ</button></div>
@@ -45,12 +59,6 @@
           </div>
           <div id="hero-choices" class="hero-choices" role="group" aria-label="Choose a gameplay preview"></div>
           <p class="caption hero-caption">Real retained footage · Short preview · Original creators credited below</p>
-        </div>
-        <div class="metrics" aria-label="Verified dataset scale">
-          <div><strong id="stat-clips">69,678</strong><span>video clips</span></div>
-          <div><strong id="stat-hours">1,655</strong><span>gameplay hours</span></div>
-          <div><strong id="stat-frames">349.6M</strong><span>video frames</span></div>
-          <div><strong id="stat-two">40,752</strong><span>two-minute clips</span></div>
         </div>
       </div>
     </section>
