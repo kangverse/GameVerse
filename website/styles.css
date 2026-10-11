@@ -53,3 +53,32 @@ h3{font-weight:600}
 .citation-code pre{font-family:var(--mono)}
 @media(max-width:700px){.hero-copy h2{letter-spacing:-.015em}.authors{font-size:11px}.section-label{font-size:10px}}
 @media(max-width:480px){.hero-caption{font-size:10px}.resource .resource-status{font-size:8px}.caption{font-size:10px}}
+
+/* Soft world atmosphere and progressive motion; all content works without effects. */
+.hero{position:relative;isolation:isolate}
+.hero-atmosphere{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.hero-atmosphere:before{content:'';position:absolute;inset:0;background-image:radial-gradient(#315be727 .8px,transparent .8px);background-size:26px 26px;opacity:.32;mask-image:linear-gradient(transparent,#000 55%,transparent)}
+.hero-atmosphere:after{content:'';position:absolute;inset:0;background:radial-gradient(420px circle at var(--ambient-x,25%) var(--ambient-y,30%),#88acff1a,transparent 75%)}
+.ambient-orb{position:absolute;width:650px;height:650px;border-radius:50%;animation:world-drift 20s ease-in-out infinite alternate;will-change:transform}
+.ambient-orb-blue{left:-180px;top:-330px;background:radial-gradient(circle,#b0c8ff59,transparent 68%)}
+.ambient-orb-violet{right:-220px;top:-260px;background:radial-gradient(circle,#cbbaff45,transparent 68%);animation-delay:-8s;animation-duration:26s}
+.hero-copy h1>span{background:linear-gradient(110deg,#315be7 20%,#7462d9 48%,#237db9 76%,#315be7);background-size:240% 100%;background-clip:text;-webkit-background-clip:text;color:transparent;animation:world-color 16s ease-in-out infinite alternate}
+.nav:after{content:'';position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:linear-gradient(90deg,#315be7,#8a70db);transform:scaleX(var(--scroll-progress,0));transform-origin:left;pointer-events:none}
+.reveal-pending{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)}
+.reveal-pending.reveal-visible,.reveal-pending:focus-within{opacity:1;transform:none}
+.hero.ambient-paused .ambient-orb,.hero.ambient-paused h1>span,.effects-paused .ambient-orb,.effects-paused .hero-copy h1>span{animation-play-state:paused}
+@keyframes world-drift{to{transform:translate3d(55px,45px,0) scale(1.08)}}
+@keyframes world-color{to{background-position:100% 50%}}
+@media(hover:hover) and (pointer:fine){
+ .resource:not(.pending),.access-actions .button,.hero-choices button,.filters button,.result-tabs button{transition:transform .2s ease,background-color .2s ease,border-color .2s ease,box-shadow .2s ease}
+ .resource:not(.pending):hover,.access-actions .button:hover{transform:translateY(-2px);box-shadow:0 7px 20px #315be717}
+ .hero-choices button:hover,.filters button:hover,.result-tabs button:hover{transform:translateY(-1px);border-color:var(--accent)}
+ .card-media{transition:box-shadow .25s ease,transform .25s ease}
+ .game-card:hover .card-media,.game-card:focus-visible .card-media{transform:translateY(-4px);box-shadow:0 12px 28px #1923381c}
+ .result-frame a{transition:transform .2s ease,box-shadow .2s ease}
+ .result-frame a:hover{transform:translateY(-3px);box-shadow:0 7px 18px #19233814}
+}
+@media(max-width:700px){.ambient-orb{width:420px;height:420px;animation:none}.ambient-orb-blue{left:-180px;top:-200px}.ambient-orb-violet{right:-240px;top:180px}.hero-atmosphere:before{opacity:.18}.hero-atmosphere:after{display:none}}
+@media(prefers-reduced-motion:reduce){.ambient-orb,.hero-copy h1>span{animation:none;will-change:auto}.reveal-pending{opacity:1;transform:none}.resource:hover,.access-actions .button:hover,.game-card:hover .card-media,.result-frame a:hover,.hero-choices button:hover,.filters button:hover,.result-tabs button:hover{transform:none}}
+
+.motion-lite .ambient-orb,.motion-lite .hero-copy h1>span{animation:none;will-change:auto}
