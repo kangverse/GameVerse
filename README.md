@@ -4,11 +4,17 @@
 
 The verified final video selection contains **69,678 clips**, **1,655.05 video hours**, and **349,628,223 encoded frames**. Of these, **40,752 clips** are approximately two minutes long and account for **82.1% of video hours**. Video metadata was checked against the final OCR-pass manifest on October 10, 2026.
 
+## Dataset construction
+
+![GameVerse construction pipeline: gameplay videos are segmented into scenes, filtered, refined into clips of up to two minutes, and annotated with camera trajectories and structured captions.](website/assets/media/paper-overview-pipeline.webp)
+
+The figure summarizes scene segmentation, the five-step quality pipeline, clip selection, and trajectory and caption annotation.
+
 ## Project website
 
-The project website is in [`website/`](website/). Its layout adapts to desktop, tablet, and phone widths, with resource links and dataset scale near the top. Explore nine attributed recording previews, a complete two-minute clip with seekable keyframes, captions that follow the recorded video time, camera trajectory projections, and qualitative generation examples from the paper.
+The project website is in [`website/`](website/). Its layout adapts to desktop, tablet, and phone widths, with resource links and dataset scale near the top. Explore nine attributed recording previews, a complete two-minute clip with seekable keyframes, a separate time-linked structured-caption example, camera trajectory projections, and qualitative generation examples from the paper.
 
-Recording cards distinguish preview length from original clip length. Caption gaps are marked while the full-duration refresh is in progress. The trajectory overview shows normalized stored camera centers independently of video playback; it does not imply verified timestamp alignment. Generation figures are labeled separately from dataset recordings.
+Recording cards distinguish preview length from original clip length. The trajectory overview shows normalized stored camera centers independently of video playback; it does not imply verified timestamp alignment. Generation figures are labeled separately from dataset recordings.
 
 The project website is published at **https://kangverse.github.io/GameVerse/**. Updates to `website/` on `main` automatically deploy through GitHub Pages. The eventual preferred address is https://gameverse.github.io/GameVerse/, pending access to that account or organization.
 
@@ -23,6 +29,7 @@ For public access, open https://kangverse.github.io/GameVerse/ . GitHub Actions 
 ## Release status
 
 - [Hugging Face dataset](https://huggingface.co/datasets/Kangverse/GameVerse): currently private; public access is forthcoming.
+- This GitHub README is the release guide and access entry point; the video dataset itself is not hosted in this Git repository.
 - Paper and arXiv links: forthcoming.
 - Existing `caption/` files are a legacy annotation snapshot. Full-duration captions are being regenerated; caption-derived distributions are provisional.
 - Camera trajectory audit found 69,673 readable pose files and five missing files in the final selection. Exact temporal alignment requires confirmation of the preprocessing timebase. This README does not imply every final clip already has validated released poses and intrinsics.
