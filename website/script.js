@@ -2,14 +2,38 @@
 const $ = id => document.getElementById(id);
 const number = n => new Intl.NumberFormat('en-US').format(n);
 const escapeHTML = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const SITE_VERSION = '20261010-camera-controls';
+const SITE_VERSION = '20261016-slate-temporal';
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 const conserveData = !!navigator.connection?.saveData;
 let cases = [], stats, continuity, researchResults, heroIndex = 6, heroPaused = reduced.matches || conserveData;
 let chartMode = 'clips', activeField = 'static_scene', galleryFilter = 'all', currentClip, returnFocus;
-let heroVisible = true, annotationPosition = 0, resultType = 'continuity';
+let heroVisible = true, annotationPosition = 0, annotationSeekTarget = null, resultType = 'continuity', scaleCase;
 const fieldNames = {static_scene:'Scene structure',subject_motion:'Player behavior',environment_motion:'World dynamics',camera_description:'Camera viewpoint & motion'};
 const timeLabel = time => `${Math.floor(time / 60)}:${String(Math.floor(time % 60)).padStart(2,'0')}`;
+const secondLabel = time => Number.isInteger(time) ? String(time) : time.toFixed(1);
+
+function setupImmersiveMotion() {
+  const progress=document.createElement('div');progress.className='scroll-progress';progress.setAttribute('aria-hidden','true');document.body.append(progress);
+  const targets=[...document.querySelectorAll('.section-heading,.statement>*,.continuity-player,.scale-layout>*,.annotation-layout,.trajectory-layout>*,.resource-card,.citation-heading,.citation-code')];
+  targets.forEach((el,index)=>{el.classList.add('reveal');el.style.transitionDelay=`${Math.min(index%4,3)*55}ms`;});
+  if(reduced.matches)targets.forEach(el=>el.classList.add('is-visible'));
+  else {
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}}),{rootMargin:'0px 0px -9% 0px',threshold:.08});
+    targets.forEach(el=>observer.observe(el));
+  }
+  let pending=false;
+  const paint=()=>{
+    pending=false;
+    const max=Math.max(document.documentElement.scrollHeight-innerHeight,1),ratio=Math.min(scrollY/max,1);
+    document.documentElement.style.setProperty('--scroll-progress',`${ratio*100}%`);
+    if(!reduced.matches && innerWidth>1000){
+      const hero=document.querySelector('.hero-screen'),amount=Math.min(scrollY,720);
+      hero?.style.setProperty('--hero-shift',`${amount*.045}px`);
+      hero?.style.setProperty('--hero-tilt',`${Math.min(amount*.0022,1.25)}deg`);
+    }
+  };
+  window.addEventListener('scroll',()=>{if(!pending){pending=true;requestAnimationFrame(paint);}},{passive:true});paint();
+}
 
 function chooseHero(index) {
   heroIndex = index;
@@ -67,15 +91,17 @@ function seekVideo(video, position) {
   else {video.addEventListener('loadedmetadata',seek,{once:true});video.load();}
 }
 function renderContinuity() {
-  for(const id of ['continuity-video','annotation-video'])$(id).src=continuity.preview;
-  $('continuity-source').href=continuity.source_url;
-  $('annotation-seek').max=Math.min(120,continuity.duration_s);
-  for(const keyframe of continuity.keyframes) {
+  $('continuity-video').src=scaleCase.preview;
+  $('annotation-video').src=continuity.preview;
+  $('continuity-source').href=scaleCase.source_url;
+  $('annotation-source').href=continuity.source_url;
+  $('annotation-seek').max=Math.min(120,continuity.duration_s-.05).toFixed(2);
+  for(const [index,keyframe] of scaleCase.keyframes.entries()) {
     const button=document.createElement('button');button.type='button';button.className='keyframe';
     button.setAttribute('aria-label',`Jump to ${keyframe.label_s===120?'the last frame':keyframe.label_s+' seconds'} of the recording`);
     button.setAttribute('aria-pressed',String(keyframe.label_s===0));button.classList.toggle('active',keyframe.label_s===0);
     button.dataset.time=keyframe.seek_s;
-    button.innerHTML=`<img src="${escapeHTML(keyframe.poster)}" alt="${keyframe.label_s} second keyframe" loading="lazy" width="480" height="270"><span>${String(keyframe.label_s).padStart(3,'0')} s</span>`;
+    button.innerHTML=`<span class="keyframe-dot" aria-hidden="true"></span><span class="keyframe-image"><img src="${escapeHTML(keyframe.poster)}" alt="${keyframe.label_s} second keyframe" loading="eager" width="480" height="270"></span><span class="keyframe-meta"><b>${timeLabel(keyframe.label_s)}</b><small>${index===0?'START':index===scaleCase.keyframes.length-1?'END':`MOMENT ${String(index+1).padStart(2,'0')}`}</small></span>`;
     button.addEventListener('click',()=>{seekVideo($('continuity-video'),keyframe.seek_s);markKeyframe(keyframe.seek_s);});
     $('keyframes').append(button);
   }
@@ -89,10 +115,11 @@ function markKeyframe(position) {
 function renderAnnotation(position=annotationPosition) {
   if(!continuity)return;
   annotationPosition=position;
-  const segment=continuity.segments.find(s=>s.start_s<=position && position<s.end_s);
+  const captionPosition=Math.min(position,continuity.duration_s-.05);
+  const segment=continuity.segments.find(s=>s.start_s<=captionPosition && captionPosition<s.end_s);
   $('annotation-time').textContent=`${timeLabel(position)} / ${timeLabel(Math.round(continuity.duration_s))}`;
   $('annotation-seek').value=position;
-  $('annotation-range').textContent=segment ? `SOURCE INTERVAL / ${segment.start_s}–${segment.end_s} s` : 'CAPTION REFRESH PENDING';
+  $('annotation-range').textContent=segment ? `SOURCE INTERVAL / ${secondLabel(segment.start_s)}–${secondLabel(segment.end_s)} s` : 'CAPTION REFRESH PENDING';
   $('annotation-content').textContent=segment ? (segment.fields[activeField] || 'No explicit event is described in this interval.') : 'This part of the recording is awaiting the full-duration caption refresh. Explore an earlier interval to inspect the current annotations.';
 }
 function renderTrajectory(plane) {
@@ -162,8 +189,12 @@ function setupTabs(buttons,panel,onChange) {
   $(panel).setAttribute('aria-labelledby',buttons[0].id);
 }
 setupTabs([...document.querySelectorAll('[data-field]')],'annotation-content',b=>{activeField=b.dataset.field;renderAnnotation();});
-$('annotation-seek').addEventListener('input',e=>{const position=Number(e.target.value);renderAnnotation(position);seekVideo($('annotation-video'),position);});
-$('annotation-video').addEventListener('timeupdate',()=>renderAnnotation($('annotation-video').currentTime));
+$('annotation-seek').addEventListener('input',e=>{const position=Number(e.target.value);annotationSeekTarget=position;renderAnnotation(position);seekVideo($('annotation-video'),position);});
+$('annotation-video').addEventListener('timeupdate',()=>{
+  const position=$('annotation-video').currentTime;
+  if(annotationSeekTarget!==null && Math.abs(position-annotationSeekTarget)>.3)return;
+  annotationSeekTarget=null;renderAnnotation(position);
+});
 $('continuity-video').addEventListener('timeupdate',()=>markKeyframe($('continuity-video').currentTime));
 for(const id of ['annotation-video','continuity-video'])$(id).addEventListener('play',()=>{
   document.querySelectorAll('video').forEach(v=>{if(v!==$(id))v.pause();});
@@ -201,8 +232,8 @@ function updateNavigation(){scrollPending=false;let current;for(const item of na
 window.addEventListener('scroll',()=>{if(!scrollPending){scrollPending=true;requestAnimationFrame(updateNavigation);}},{passive:true});
 async function init() {
   try {
-    const result=await Promise.all(['statistics','cases','continuity','results'].map(async name=>{const response=await fetch(`assets/data/${name}.json?v=${SITE_VERSION}`);if(!response.ok)throw Error(name);return response.json();}));
-    [stats,cases,continuity,researchResults]=result;
+    const result=await Promise.all(['statistics','cases','continuity','scale','results'].map(async name=>{const response=await fetch(`assets/data/${name}.json?v=${SITE_VERSION}`);if(!response.ok)throw Error(name);return response.json();}));
+    [stats,cases,continuity,scaleCase,researchResults]=result;
     $('stat-clips').textContent=number(stats.clips);$('stat-hours').textContent=number(Math.round(stats.hours));$('stat-frames').textContent=(stats.frames/1e6).toFixed(1)+'M';$('stat-two').textContent=number(stats.two_minute_clips);
     $('two-minute-share').textContent=(stats.two_minute_hours/stats.hours*100).toFixed(1)+'%';
     $('horizon-description').textContent=`${number(stats.two_minute_clips)} continuous two-minute recordings contribute ${number(Math.round(stats.two_minute_hours))} hours of gameplay.`;
@@ -211,7 +242,7 @@ async function init() {
       const b=document.createElement('button');b.type='button';b.dataset.index=index;b.textContent=label;
       b.setAttribute('aria-label',`Show ${cases[index].game} preview`);b.addEventListener('click',()=>chooseHero(index));$('hero-choices').append(b);
     }
-    chooseHero(6);renderGallery();renderChart();renderContinuity();renderResult('continuity');updateNavigation();
+    chooseHero(6);renderGallery();renderChart();renderContinuity();renderResult('continuity');setupImmersiveMotion();updateNavigation();
   } catch(error) {$('load-error').hidden=false;console.error('Could not load website data',error);}
 }
 init();

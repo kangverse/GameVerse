@@ -4,7 +4,7 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>GameVerse — A Minute-Scale Gameplay Dataset · NeurIPS 2026</title>
   <meta name="description" content="GameVerse: A Minute-Scale Gameplay Dataset for Long-Horizon Interactive World Modeling. Accepted at NeurIPS 2026.">
-  <meta name="theme-color" content="#faf9f6">
+  <meta name="theme-color" content="#17191f">
   <meta property="og:title" content="GameVerse · NeurIPS 2026"><meta property="og:description" content="69,678 gameplay clips. 1,655 hours. Minute-scale worlds, camera trajectories, and structured semantics.">
   <meta property="og:type" content="website"><meta property="og:url" content="https://kangverse.github.io/GameVerse/">
   <meta property="og:image" content="https://kangverse.github.io/GameVerse/assets/media/cover.jpg">
@@ -12,12 +12,16 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=world-orbit"><link rel="icon" href="assets/favicon.ico?v=world-orbit"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=camera-controls"><script defer src="script.js?v=camera-controls"></script>
+  <link rel="stylesheet" href="styles.css?v=slate-rdr-cases"><script defer src="script.js?v=slate-rdr-cases"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="nav">
-    <a class="brand" href="#top"><img class="brand-icon" src="assets/gameverse-logo.png" alt="" width="32" height="32">GameVerse</a>
+    <div class="institution-logos" aria-label="Research institutions">
+      <a class="institution-link alaya-link" href="https://alayalab.ai/" target="_blank" rel="noreferrer" aria-label="Alaya Lab"><img src="assets/alaya-lab-icon.svg" alt="" width="27" height="25"><span>ALAYA LAB</span></a>
+      <a class="institution-link sii-link" href="https://www.sii.edu.cn/" target="_blank" rel="noreferrer" aria-label="上海创智学院"><img src="assets/sii-logo-white.svg" alt="上海创智学院" width="114" height="32"></a>
+      <a class="institution-link whu-link" href="https://www.whu.edu.cn/" target="_blank" rel="noreferrer" aria-label="武汉大学"><img src="assets/whu-logo-white.png" alt="武汉大学" width="103" height="32"></a>
+    </div>
     <nav aria-label="Main"><a href="#explore">Samples</a><a href="#scale">Dataset</a><a href="#annotations">Annotations</a><a href="#results">Results</a><a href="#citation">Citation</a></nav>
     <a class="nav-link" href="https://github.com/kangverse/GameVerse" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
   </header>
@@ -26,7 +30,7 @@
       <div class="hero-top"><span class="eyebrow"><i class="status-dot"></i> NeurIPS 2026 · Evaluations & Datasets</span><span class="mono edition">DATA FOR WORLDS THAT KEEP GOING</span></div>
       <div class="hero-layout">
         <div class="hero-copy">
-          <h1>Game<span>Verse</span></h1>
+          <h1 class="gameverse-title" aria-label="GameVerse"><span style="--mix:0%">G</span><span style="--mix:12%">a</span><span style="--mix:25%">m</span><span style="--mix:38%">e</span><span style="--mix:50%">V</span><span style="--mix:62%">e</span><span style="--mix:75%">r</span><span style="--mix:88%">s</span><span style="--mix:100%">e</span></h1>
           <h2>A Minute-Scale Gameplay Dataset for Long-Horizon Interactive World Modeling</h2>
           <p class="hero-intro">Continuous gameplay, camera trajectories, and structured semantics for worlds that keep going.</p>
           <p class="authors">Kang He · Wenshuo Peng · Chuanhao Li · Zihui Gao · Xiaojie Xu · Zhengyuan Lin · Yuzhe Ding · Donghong Ji · Kaipeng Zhang · Yongtao Ge</p>
@@ -64,23 +68,24 @@
       <div class="gallery" id="gallery"></div><p class="caption">Dataset recordings · Each card distinguishes preview length from original clip length · Source links in the viewer</p>
     </section>
     <section class="section scale-section" id="scale">
-      <div class="section-heading"><div><div class="section-label"><span>03</span> TEMPORAL SCALE</div><h2>One world.<br>Two uninterrupted minutes.</h2></div><p>Follow a complete retained recording, from its first frame to its last. Select a moment below to jump through the same evolving scene.</p></div>
+      <div class="section-heading"><div><div class="section-label"><span>03</span> TEMPORAL SCALE</div><h2>One world.<br>Two uninterrupted minutes.</h2></div><p>Follow one continuous Red Dead Redemption 2 recording through a sunlit forest. Select a frame to jump to that moment.</p></div>
       <div class="continuity-player">
-        <video id="continuity-video" controls playsinline preload="none" poster="assets/media/continuity-000.jpg" aria-label="Complete two-minute Ghost of Tsushima dataset recording"></video>
-        <div class="player-meta"><div><span class="eyebrow">COMPLETE DATASET RECORDING</span><h3>Ghost of Tsushima</h3></div><a id="continuity-source" class="text-link" target="_blank" rel="noreferrer">Original source ↗</a></div>
+        <video id="continuity-video" controls playsinline preload="none" poster="assets/media/temporal-rdr2-000.jpg" aria-label="Complete two-minute Red Dead Redemption 2 dataset recording"></video>
+        <div class="player-meta"><div><span class="eyebrow">ONE CONTINUOUS RECORDING / 02:00</span><h3>Red Dead Redemption 2 · Forest walk</h3></div><a id="continuity-source" class="text-link" target="_blank" rel="noreferrer">Original source ↗</a></div>
       </div>
+      <div class="sequence-heading"><span class="mono">A SINGLE UNBROKEN SCENE</span><span class="mono">SELECT A MOMENT ↓</span></div>
       <div class="keyframes" id="keyframes" role="group" aria-label="Jump to a moment in the complete recording"></div>
-      <p class="caption">Keyframes are sampled from this single continuous clip. The 120 s card shows the last available frame.</p>
+      <p class="caption sequence-caption">Five frames from the same retained 120-second clip · The final card shows its last available frame.</p>
       <div class="scale-layout">
         <div class="duration-chart"><div class="chart-title"><h3>Clip duration distribution</h3><div class="chart-toggle" role="group" aria-label="Duration chart unit"><button data-chart="clips" class="active" aria-pressed="true">Clips</button><button data-chart="hours" aria-pressed="false">Hours</button></div></div><div id="duration-bars"></div><p class="caption" id="chart-unit">Horizontal axis: clips · Vertical axis: video duration (seconds).</p></div>
         <div class="horizon-note"><span class="mono">THE TWO-MINUTE WINDOW</span><strong id="two-minute-share">82.1%</strong><h3>of gameplay hours come from two-minute clips.</h3><p id="horizon-description"></p><div class="timeline"><span>0s</span><i></i><span>60s</span><i></i><span>120s</span></div></div>
       </div><details class="statistics-details"><summary>How these statistics are measured</summary><p class="caption" id="statistics-source"></p></details>
     </section>
     <section class="section annotation-section" id="annotations">
-      <div class="section-heading"><div><div class="section-label"><span>04</span> STRUCTURED SEMANTICS</div><h2>Watch the scene.<br>Read its layers.</h2></div><p>Play the recording or scrub through time. Inspect the current scene, player, world, and camera descriptions for the matching annotated interval.</p></div>
+      <div class="section-heading"><div><div class="section-label"><span>04</span> STRUCTURED SEMANTICS</div><h2>Watch the scene.<br>Read its layers.</h2></div><p>Follow a Red Dead Redemption 2 city walk. Scrub through time to read the scene, player, world, and camera descriptions aligned to each interval.</p></div>
       <div class="annotation-layout">
-        <div class="annotation-visual"><video id="annotation-video" controls playsinline preload="none" poster="assets/media/continuity-000.jpg" aria-label="Gameplay recording with time-linked structured captions"></video><div class="annotation-visual-footer"><span>Ghost of Tsushima</span><span class="mono" id="annotation-time">0:00 / 2:00</span></div><label class="seek-label" for="annotation-seek">Explore the recording</label><input id="annotation-seek" class="annotation-seek" type="range" min="0" max="120" step="0.1" value="0" aria-label="Seek gameplay and corresponding captions"></div>
-        <div class="annotation-panel"><div class="annotation-tabs" role="tablist" aria-label="Annotation fields"><button role="tab" data-field="static_scene" aria-selected="true" class="active">Scene</button><button role="tab" data-field="subject_motion" aria-selected="false">Player</button><button role="tab" data-field="environment_motion" aria-selected="false">World</button><button role="tab" data-field="camera_description" aria-selected="false">Camera</button></div><span class="mono segment-range" id="annotation-range"></span><div class="annotation-content" role="tabpanel" id="annotation-content" tabindex="0"></div><p class="schema-note">Annotations shown here come from the current snapshot. Intervals awaiting the full-duration caption refresh are marked explicitly.</p></div>
+        <div class="annotation-visual"><video id="annotation-video" controls playsinline preload="none" poster="assets/media/annotation-rdr-city-000.jpg" aria-label="Red Dead Redemption 2 city walk with time-linked structured captions"></video><div class="annotation-visual-footer"><a id="annotation-source" target="_blank" rel="noreferrer">Red Dead Redemption 2 · City walk ↗</a><span class="mono" id="annotation-time">0:00 / 0:46</span></div><label class="seek-label" for="annotation-seek">Explore the recording</label><input id="annotation-seek" class="annotation-seek" type="range" min="0" max="46.5" step="0.1" value="0" aria-label="Seek gameplay and corresponding captions"></div>
+        <div class="annotation-panel"><div class="annotation-tabs" role="tablist" aria-label="Annotation fields"><button role="tab" data-field="static_scene" aria-selected="true" class="active">Scene</button><button role="tab" data-field="subject_motion" aria-selected="false">Player</button><button role="tab" data-field="environment_motion" aria-selected="false">World</button><button role="tab" data-field="camera_description" aria-selected="false">Camera</button></div><span class="mono segment-range" id="annotation-range"></span><div class="annotation-content" role="tabpanel" id="annotation-content" tabindex="0"></div><p class="schema-note">Caption intervals and camera centers come from this same retained recording. The trajectory is displayed independently of video time.</p></div>
       </div>
       <div class="trajectory-layout" id="trajectory-overview"><div><span class="eyebrow">CAMERA GEOMETRY</span><h3>A path through the world.</h3><p>Explore the estimated camera centers from the same retained clip. Switch the projection to see the stored trajectory from another plane.</p><div class="projection-tabs" role="group" aria-label="Camera trajectory projection"><button data-plane="xz" class="active" aria-pressed="true">XZ</button><button data-plane="xy" aria-pressed="false">XY</button><button data-plane="yz" aria-pressed="false">YZ</button></div><p class="caption">Independent trajectory overview · Relative scale · Video timestamp alignment pending confirmation</p></div><div class="trajectory-chart"><svg id="trajectory-svg" viewBox="0 0 540 240" role="img" aria-labelledby="trajectory-title trajectory-description"><title id="trajectory-title">Estimated camera-center trajectory</title><desc id="trajectory-description">Normalized stored camera centers. The path is shown independently of video playback.</desc></svg><p class="caption" id="trajectory-caption"></p></div></div>
     </section>
@@ -92,12 +97,14 @@
       <p class="caption" id="result-caption">Screenshots from the original camera-conditioned evaluation videos.</p>
       <details class="result-details"><summary>Source recording</summary><p id="result-source" class="mono"></p></details>
     </section>
-    <section class="section pipeline-section" id="pipeline">
-      <div class="section-heading"><div><div class="section-label"><span>06</span> DATA CONSTRUCTION</div><h2>Gameplay to supervision.</h2></div></div>
-      <ol class="pipeline"><li><span class="mono">01 / COLLECT</span><h3>Gameplay sources</h3><p>Diverse games, viewpoints, and environments.</p></li><li><span class="mono">02 / SEGMENT</span><h3>Continuous scenes</h3><p>Scene-consistent clips up to two minutes.</p></li><li><span class="mono">03 / FILTER</span><h3>Retained footage</h3><p>Final video selection defines the published scale.</p></li><li><span class="mono">04 / ANNOTATE</span><h3>Geometry & semantics</h3><p>Estimated poses and structured captions.</p></li></ol>
+    <section class="section access-section" id="access">
+      <div class="section-heading"><div><div class="section-label"><span>06</span> RESOURCES</div><h2>Explore the project.</h2></div><p>Code and dataset access in one place. Public dataset access and the paper link will be added with the release.</p></div>
+      <div class="resource-grid">
+        <a class="resource-card" href="https://github.com/kangverse/GameVerse" target="_blank" rel="noreferrer"><span class="resource-card-top"><span class="mono">01 / CODE</span><span class="resource-state">Available</span></span><span class="resource-card-bottom"><span><strong>GitHub repository</strong><small>Data pipeline and project code</small></span><span class="resource-arrow" aria-hidden="true">↗</span></span></a>
+        <a class="resource-card" href="https://huggingface.co/datasets/Kangverse/GameVerse" target="_blank" rel="noreferrer"><span class="resource-card-top"><span class="mono">02 / DATASET</span><span class="resource-state muted">Private for now</span></span><span class="resource-card-bottom"><span><strong>Hugging Face dataset</strong><small>Release access is forthcoming</small></span><span class="resource-arrow" aria-hidden="true">↗</span></span></a>
+      </div>
     </section>
-    <section class="section access-section" id="access"><div class="access-box"><div><div class="section-label"><span>07</span> RESOURCES</div><h2>Build with GameVerse.</h2><p>The code repository is available. The Hugging Face dataset is currently private; public access and the paper link will follow with the release.</p></div><div class="access-actions"><a class="button" href="https://github.com/kangverse/GameVerse" target="_blank" rel="noreferrer">Explore the code <span>↗</span></a><a class="button outline" href="https://huggingface.co/datasets/Kangverse/GameVerse" target="_blank" rel="noreferrer">Dataset repository <span>↗</span></a></div></div></section>
-    <section class="section citation-section" id="citation"><div><div class="section-label"><span>08</span> CITATION</div><h2>Reference GameVerse.</h2></div><div class="citation-code"><button id="copy-citation" type="button">Copy BibTeX</button><pre id="bibtex">@inproceedings{he2026gameverse,
+    <section class="section citation-section" id="citation"><div class="citation-heading"><div><div class="section-label"><span>07</span> CITATION</div><h2>Cite GameVerse.</h2></div><p>Use the entry below when referencing this work. Proceedings details will be updated when available.</p></div><div class="citation-code"><div class="citation-toolbar"><span class="mono">BIBTEX / NEURIPS 2026</span><button id="copy-citation" type="button">Copy BibTeX ↗</button></div><pre id="bibtex">@inproceedings{he2026gameverse,
   title = {GameVerse: A Minute-Scale Gameplay Dataset
            for Long-Horizon Interactive World Modeling},
   author = {He, Kang and Peng, Wenshuo and Li, Chuanhao
@@ -106,9 +113,9 @@
             and Zhang, Kaipeng and Ge, Yongtao},
   booktitle = {Advances in Neural Information Processing Systems},
   year = {2026}
-}</pre><p class="caption">Paper link and proceedings details will be added when available.</p><span id="copy-status" class="sr-only" role="status"></span></div></section>
+}</pre><span id="copy-status" class="sr-only" role="status"></span></div></section>
   </main>
-  <footer><a class="brand" href="#top"><img class="brand-icon" src="assets/gameverse-logo.png" alt="" width="32" height="32">GameVerse <span>↗</span></a><p>A longer horizon for interactive world modeling.</p><span class="mono">NEURIPS 2026</span></footer>
+  <footer><a class="brand" href="#top"><img class="brand-icon" src="assets/gameverse-logo.png" alt="" width="32" height="32"><span class="brand-gradient">GameVerse</span></a><p>A longer horizon for interactive world modeling.</p><span class="mono">NEURIPS 2026</span></footer>
   <dialog id="clip-dialog" class="clip-dialog"><button id="close-dialog" class="dialog-close" aria-label="Close clip inspection">×</button><div class="dialog-header"><span class="eyebrow">DATASET RECORDING</span><h2 id="dialog-title"></h2><p id="dialog-meta"></p></div><div class="dialog-layout"><video id="dialog-video" controls playsinline preload="none"></video><div><h3>Annotation excerpt</h3><p id="dialog-range"></p><div id="dialog-annotations"></div><a id="dialog-source" class="text-link" target="_blank" rel="noreferrer">Original source ↗</a></div></div><div class="dialog-navigation"><button id="previous-clip" type="button">← Previous</button><span id="dialog-position" class="mono"></span><button id="next-clip" type="button">Next →</button></div><p class="caption">Short excerpts of retained recordings. Original clip length and preview length are listed separately. Captions describe the stated source interval.</p></dialog>
   <div id="load-error" role="alert" hidden>Dataset information could not load. Please refresh the page.</div>
 </body>

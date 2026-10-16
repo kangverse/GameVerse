@@ -1,0 +1,15 @@
+{
+  "game": "Red Dead Redemption 2",
+  "clip_id": "2-5JHq_vN7g_0003750_0010950",
+  "source_url": "https://www.youtube.com/watch?v=2-5JHq_vN7g",
+  "duration_s": 120.0,
+  "preview": "assets/media/temporal-rdr2-web.mp4",
+  "poster": "assets/media/temporal-rdr2-000.jpg",
+  "keyframes": [
+    {"label_s": 0, "seek_s": 0, "poster": "assets/media/temporal-rdr2-000.jpg"},
+    {"label_s": 30, "seek_s": 30, "poster": "assets/media/temporal-rdr2-030.jpg"},
+    {"label_s": 60, "seek_s": 60, "poster": "assets/media/temporal-rdr2-060.jpg"},
+    {"label_s": 90, "seek_s": 90, "poster": "assets/media/temporal-rdr2-090.jpg"},
+    {"label_s": 120, "seek_s": 119.933, "poster": "assets/media/temporal-rdr2-120.jpg"}
+  ]
+}
