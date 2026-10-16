@@ -45,7 +45,17 @@ body:before{opacity:.11}
 .open-icon{background:#f2f3f5;color:#17191f}
 .keyframe.active{border-color:var(--text);box-shadow:0 0 18px rgba(255,255,255,.1)}
 .keyframe.active span,.annotation-tabs button.active{color:var(--text)}
-.bar-track i,.bar-row:last-child .bar-track i{background:linear-gradient(90deg,#78808e,#e4e7ec)}
+#duration-bars .bar-row:nth-child(1){--bar-tone:#6b7fa8}
+#duration-bars .bar-row:nth-child(2){--bar-tone:#6d8dad}
+#duration-bars .bar-row:nth-child(3){--bar-tone:#709bb3}
+#duration-bars .bar-row:nth-child(4){--bar-tone:#73a9ba}
+#duration-bars .bar-row:nth-child(5){--bar-tone:#77b6bf}
+#duration-bars .bar-row:nth-child(6){--bar-tone:#7fc4c3}
+#duration-bars .bar-row:nth-child(7){--bar-tone:#8dd1c7}
+#duration-bars .bar-row:nth-child(8){--bar-tone:#a8dfce}
+#duration-bars .bar-track{background:#343942}
+#duration-bars .bar-track i{background:var(--bar-tone);background:linear-gradient(90deg,color-mix(in srgb,var(--bar-tone) 72%,#344354),var(--bar-tone));box-shadow:inset 0 1px rgba(255,255,255,.16)}
+#duration-bars .bar-label,#duration-bars .bar-value{color:var(--text)}
 .horizon-note strong{background:none;color:var(--text)}
 .timeline i{background:linear-gradient(90deg,#777e8b,#e3e6ec)}
 .annotation-panel{background:linear-gradient(145deg,rgba(255,255,255,.035),transparent 45%)}
