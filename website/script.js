@@ -5,7 +5,7 @@ const escapeHTML = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&l
 const SITE_VERSION = '20261016-slate-rdr2-merged';
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 const conserveData = !!navigator.connection?.saveData;
-let cases = [], stats, continuity, researchResults, heroIndex = 6, heroPaused = reduced.matches || conserveData;
+let cases = [], stats, continuity, researchResults, heroIndex = 4, heroPaused = reduced.matches || conserveData;
 let chartMode = 'clips', activeField = 'static_scene', galleryFilter = 'all', currentClip, returnFocus;
 let heroVisible = true, annotationPosition = 0, annotationSeekTarget = null, resultType = 'continuity', scaleCase;
 const fieldNames = {static_scene:'Scene structure',subject_motion:'Player behavior',environment_motion:'World dynamics',camera_description:'Camera viewpoint & motion'};
@@ -239,11 +239,11 @@ async function init() {
     $('two-minute-share').textContent=(stats.two_minute_hours/stats.hours*100).toFixed(1)+'%';
     $('horizon-description').textContent=`${number(stats.two_minute_clips)} continuous two-minute recordings contribute ${number(Math.round(stats.two_minute_hours))} hours of gameplay.`;
     $('statistics-source').textContent=`Source: final retained clip manifest · ${stats.snapshot_date}. Video-track durations and encoded frame counts are measured directly. Two-minute clips: 120 ± 0.05 s. Displayed hours are rounded.`;
-    for(const [index,label] of [[6,'Tsushima'],[4,'Elden Ring'],[8,'Odyssey'],[1,'GTA V'],[5,'Avatar']]) {
+    for(const [index,label] of [[4,'Elden Ring'],[7,'The Witcher 3'],[8,'Odyssey'],[1,'GTA V'],[5,'Avatar']]) {
       const b=document.createElement('button');b.type='button';b.dataset.index=index;b.textContent=label;
       b.setAttribute('aria-label',`Show ${cases[index].game} preview`);b.addEventListener('click',()=>chooseHero(index));$('hero-choices').append(b);
     }
-    chooseHero(6);renderGallery();renderChart();renderContinuity();renderResult('continuity');setupImmersiveMotion();updateNavigation();
+    chooseHero(4);renderGallery();renderChart();renderContinuity();renderResult('continuity');setupImmersiveMotion();updateNavigation();
   } catch(error) {$('load-error').hidden=false;console.error('Could not load website data',error);}
 }
 init();
