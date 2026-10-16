@@ -10,9 +10,10 @@
   <meta property="og:image" content="https://kangverse.github.io/GameVerse/assets/media/cover.jpg">
   <link rel="canonical" href="https://kangverse.github.io/GameVerse/">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=world-orbit"><link rel="icon" href="assets/favicon.ico?v=world-orbit"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=slate-rdr-cases"><script defer src="script.js?v=slate-rdr-cases"></script>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=slate-rdr2-merged"><script defer src="script.js?v=slate-rdr2-merged"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -23,10 +24,11 @@
       <a class="institution-link whu-link" href="https://www.whu.edu.cn/" target="_blank" rel="noreferrer" aria-label="武汉大学"><img src="assets/whu-logo-white.png" alt="武汉大学" width="103" height="32"></a>
     </div>
     <nav aria-label="Main"><a href="#explore">Samples</a><a href="#scale">Dataset</a><a href="#annotations">Annotations</a><a href="#results">Results</a><a href="#citation">Citation</a></nav>
-    <a class="nav-link" href="https://github.com/kangverse/GameVerse" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+    <a class="nav-link" href="https://github.com/kangverse/GameVerse" target="_blank" rel="noreferrer"><svg class="resource-icon resource-icon-solid" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.2 4.8 18.2 5.1 18.2 5.1c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"/></svg>GitHub</a>
   </header>
   <main id="main">
     <section class="hero" id="top">
+      <div class="hero-atmosphere" aria-hidden="true"><i class="ambient-orb ambient-orb-blue"></i><i class="ambient-orb ambient-orb-violet"></i></div>
       <div class="hero-top"><span class="eyebrow"><i class="status-dot"></i> NeurIPS 2026 · Evaluations & Datasets</span><span class="mono edition">DATA FOR WORLDS THAT KEEP GOING</span></div>
       <div class="hero-layout">
         <div class="hero-copy">
@@ -35,26 +37,27 @@
           <p class="hero-intro">Continuous gameplay, camera trajectories, and structured semantics for worlds that keep going.</p>
           <p class="authors">Kang He · Wenshuo Peng · Chuanhao Li · Zihui Gao · Xiaojie Xu · Zhengyuan Lin · Yuzhe Ding · Donghong Ji · Kaipeng Zhang · Yongtao Ge</p>
           <div class="resource-links" aria-label="Project resources">
-            <span class="resource pending" aria-label="Paper link forthcoming">Paper <span>Forthcoming</span></span>
-            <a class="resource primary" href="https://github.com/kangverse/GameVerse" target="_blank" rel="noreferrer">Code <span>↗</span></a>
-            <a class="resource" href="https://huggingface.co/datasets/Kangverse/GameVerse" target="_blank" rel="noreferrer">Dataset <span>HF ↗</span></a>
-            <a class="resource" href="#citation">Cite <span>↓</span></a>
+            <span class="resource pending" aria-label="Paper link forthcoming"><span class="resource-label"><svg class="resource-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg>Paper</span><span class="resource-status">Forthcoming</span></span>
+            <a class="resource primary" href="https://github.com/kangverse/GameVerse" target="_blank" rel="noreferrer"><span class="resource-label"><svg class="resource-icon resource-icon-solid" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.2 4.8 18.2 5.1 18.2 5.1c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3Z"/></svg>Code</span></a>
+            <a class="resource" href="https://huggingface.co/datasets/Kangverse/GameVerse" target="_blank" rel="noreferrer"><span class="resource-label"><span class="resource-icon resource-icon-emoji" aria-hidden="true">&#129303;</span>Dataset</span><span class="resource-status">HF</span></a>
+            <a class="resource" href="#citation"><span class="resource-label"><svg class="resource-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 5H5a2 2 0 0 0-2 2v5h7V5Zm0 7v2a5 5 0 0 1-5 5M21 5h-5a2 2 0 0 0-2 2v5h7V5Zm0 7v2a5 5 0 0 1-5 5"/></svg>Cite</span></a>
           </div>
-        </div>
-        <div class="hero-preview">
-          <div class="hero-screen">
-            <video id="hero-video" muted autoplay loop playsinline preload="metadata" poster="assets/media/world-07-ghost-meadow.jpg" aria-label="A real gameplay recording from GameVerse"></video>
-            <div class="screen-top"><span class="screen-tag">DATASET RECORDING</span><button id="hero-motion" class="motion-button" type="button" aria-label="Pause background video">Pause Ⅱ</button></div>
-            <div class="screen-bottom"><div><span class="mono">WORLD / <span id="hero-index">07</span></span><h3 id="hero-game">Ghost of Tsushima</h3></div><a class="screen-explore" href="#explore" aria-label="Explore gameplay recordings">Explore ↗</a></div>
-          </div>
-          <div id="hero-choices" class="hero-choices" role="group" aria-label="Choose a gameplay preview"></div>
-          <p class="caption hero-caption">Real retained footage · Short preview · Original creators credited below</p>
         </div>
         <div class="metrics" aria-label="Verified dataset scale">
           <div><strong id="stat-clips">69,678</strong><span>video clips</span></div>
           <div><strong id="stat-hours">1,655</strong><span>gameplay hours</span></div>
           <div><strong id="stat-frames">349.6M</strong><span>video frames</span></div>
           <div><strong id="stat-two">40,752</strong><span>two-minute clips</span></div>
+        </div>
+        <div class="hero-preview" aria-labelledby="recording-heading">
+          <div class="preview-heading"><span class="eyebrow">DATASET RECORDING</span><h3 id="recording-heading">Step into the recorded worlds.</h3><p>Browse real retained gameplay from GameVerse.</p></div>
+          <div class="hero-screen">
+            <video id="hero-video" muted autoplay loop playsinline preload="metadata" poster="assets/media/world-07-ghost-meadow.jpg" aria-label="A real gameplay recording from GameVerse"></video>
+            <div class="screen-top"><span class="screen-tag">DATASET RECORDING</span><button id="hero-motion" class="motion-button" type="button" aria-label="Pause background video">Pause Ⅱ</button></div>
+            <div class="screen-bottom"><div><span class="mono">WORLD / <span id="hero-index">07</span></span><h3 id="hero-game">Ghost of Tsushima</h3></div><a class="screen-explore" href="#explore" aria-label="Explore gameplay recordings">Explore</a></div>
+          </div>
+          <div id="hero-choices" class="hero-choices" role="group" aria-label="Choose a gameplay preview"></div>
+          <p class="caption hero-caption">Real retained footage · Short preview · Original creators credited below</p>
         </div>
       </div>
     </section>
@@ -95,7 +98,7 @@
       <label class="result-scene-label" for="result-scene">Scenario <select id="result-scene" aria-label="Choose a generation scenario"><option value="0">Natural exploration</option></select></label>
       <div id="result-panel" role="tabpanel" tabindex="0"><div id="result-frames" class="result-frames"></div></div>
       <p class="caption" id="result-caption">Screenshots from the original camera-conditioned evaluation videos.</p>
-      <details class="result-details"><summary>Source recording</summary><p id="result-source" class="mono"></p></details>
+      <div class="result-prompt" aria-labelledby="result-prompt-label"><h3 id="result-prompt-label" class="eyebrow">Text prompt</h3><p id="result-prompt"></p></div>
     </section>
     <section class="section access-section" id="access">
       <div class="section-heading"><div><div class="section-label"><span>06</span> RESOURCES</div><h2>Explore the project.</h2></div><p>Code and dataset access in one place. Public dataset access and the paper link will be added with the release.</p></div>

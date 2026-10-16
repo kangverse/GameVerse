@@ -2,7 +2,7 @@
 const $ = id => document.getElementById(id);
 const number = n => new Intl.NumberFormat('en-US').format(n);
 const escapeHTML = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const SITE_VERSION = '20261016-slate-temporal';
+const SITE_VERSION = '20261016-slate-rdr2-merged';
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 const conserveData = !!navigator.connection?.saveData;
 let cases = [], stats, continuity, researchResults, heroIndex = 6, heroPaused = reduced.matches || conserveData;
@@ -58,7 +58,7 @@ function renderGallery() {
   for(const c of visibleCases()) {
     const button = document.createElement('button'); button.className='game-card'; button.type='button';
     button.dataset.clip=c.clip_id; button.setAttribute('aria-label',`Inspect ${c.game}, ${c.preview_duration_s} second preview of a ${Math.round(c.duration_s)} second recording`);
-    button.innerHTML=`<div class="card-media"><img src="${escapeHTML(c.poster)}" alt="${escapeHTML(c.game)} gameplay" loading="lazy" width="960" height="540"><video muted loop playsinline preload="none" aria-hidden="true" data-src="${escapeHTML(c.preview)}"></video><span class="view-tag">${c.view_group==='first'?'First person':'Third person'}</span><span class="hover-play" aria-hidden="true">Playing preview</span><span class="open-icon" aria-hidden="true">↗</span></div><div class="card-info"><h3>${escapeHTML(c.game)}</h3></div><p class="card-sub"><span class="preview-length">${c.preview_duration_s}s preview</span> · ${Math.round(c.duration_s)}s source clip<br>${escapeHTML(c.scene_label)}</p>`;
+    button.innerHTML=`<div class="card-media"><img src="${escapeHTML(c.poster)}" alt="${escapeHTML(c.game)} gameplay" loading="lazy" width="960" height="540"><video muted loop playsinline preload="none" aria-hidden="true" data-src="${escapeHTML(c.preview)}"></video><span class="view-tag">${c.view_group==='first'?'First person':'Third person'}</span><span class="hover-play" aria-hidden="true">Playing preview</span><span class="open-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></span></div><div class="card-info"><h3>${escapeHTML(c.game)}</h3></div><p class="card-sub"><span class="preview-length">${c.preview_duration_s}s preview</span> · ${Math.round(c.duration_s)}s source clip<br>${escapeHTML(c.scene_label)}</p>`;
     const v=button.querySelector('video'); let previewRequested=false;
     function play() {
       if(reduced.matches || conserveData || document.hidden)return;
@@ -211,7 +211,7 @@ function renderResultScene() {
     $('result-frames').append(figure);
   }
   $('result-caption').textContent=resultType==='camera'?'Original generated frames · Left: movement control · Right: camera rotation · Select a frame to view it at full resolution.':'Original generated frames · Select a frame to view it at full resolution.';
-  $('result-source').textContent=result.source_file;
+  $('result-prompt').textContent=result.prompt;
 }
 function renderResult(type) {
   resultType=type;$('result-scene').replaceChildren();
@@ -224,8 +224,9 @@ $('copy-citation').addEventListener('click',async()=>{
   try{await navigator.clipboard.writeText($('bibtex').textContent);$('copy-citation').textContent='Copied';$('copy-status').textContent='BibTeX copied to clipboard';}
   catch{const range=document.createRange();range.selectNodeContents($('bibtex'));const selection=window.getSelection();selection.removeAllRanges();selection.addRange(range);$('copy-citation').textContent='Selected — copy text';$('copy-status').textContent='BibTeX selected. Use your keyboard to copy.';}
 });
-document.addEventListener('visibilitychange',()=>{if(document.hidden){document.querySelectorAll('video').forEach(v=>v.pause());}else if(!heroPaused && heroVisible && !$('clip-dialog').open)$('hero-video').play().catch(()=>{});});
+document.addEventListener('visibilitychange',()=>{document.documentElement.classList.toggle('effects-paused',document.hidden);if(document.hidden){document.querySelectorAll('video').forEach(v=>v.pause());}else if(!heroPaused && heroVisible && !$('clip-dialog').open)$('hero-video').play().catch(()=>{});});
 new IntersectionObserver(entries=>{heroVisible=entries[0].isIntersecting;if(!heroVisible)$('hero-video').pause();else if(!heroPaused && !document.hidden && !$('clip-dialog').open && !$('annotation-video').currentTime && !$('continuity-video').currentTime)$('hero-video').play().catch(()=>{});},{threshold:.05}).observe($('hero-video'));
+new IntersectionObserver(entries=>{$('top').classList.toggle('ambient-paused',!entries[0].isIntersecting);},{threshold:.05}).observe(document.querySelector('.hero-copy'));
 const navSections=[...document.querySelectorAll('.nav nav a')].map(a=>({a,section:document.querySelector(a.getAttribute('href'))}));
 let scrollPending=false;
 function updateNavigation(){scrollPending=false;let current;for(const item of navSections)if(item.section.getBoundingClientRect().top<=160)current=item;navSections.forEach(item=>{item.a.classList.toggle('active',item===current);if(item===current)item.a.setAttribute('aria-current','location');else item.a.removeAttribute('aria-current');});}
