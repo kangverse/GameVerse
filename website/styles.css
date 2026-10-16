@@ -76,11 +76,11 @@ body:before{opacity:.11}
 .citation-toolbar .mono{color:var(--muted);font-size:10px}
 .citation-code .citation-toolbar button{margin:0;background:transparent;color:var(--text);border:1px solid var(--line-strong);border-radius:999px;padding:9px 16px;min-height:38px;transition:background .2s,color .2s}
 .citation-code .citation-toolbar button:hover{background:var(--text);color:var(--bg)}
-.citation-code pre{color:#e5e7eb;font-size:clamp(11px,1vw,13px);line-height:1.9;margin:0;padding:21px 0 10px;white-space:pre;overflow-wrap:normal;overflow-x:auto;scrollbar-width:thin;scrollbar-color:var(--line-strong) transparent}
+.citation-code pre{color:#e5e7eb;font-size:clamp(11px,1vw,13px);line-height:1.9;margin:0;padding:21px 0 10px;white-space:pre-wrap;overflow-wrap:break-word;word-break:normal;overflow-x:visible}
 .clip-dialog{background:var(--panel)}
 .skip-link{background:#f2f3f5;color:#17191f}
 .scroll-progress{background:#f2f3f5;box-shadow:0 0 10px rgba(255,255,255,.35)}
-footer .brand-icon{filter:grayscale(1) brightness(2)}
+footer .brand-icon{filter:none}
 @media(max-width:1200px){.institution-logos{gap:10px}.institution-link+.institution-link{padding-left:10px}.sii-link img{width:101px}.whu-link img{width:91px}.alaya-link{font-size:10px}}
 @media(max-width:1000px){.nav{flex-wrap:wrap}.nav nav{order:3;width:100%;justify-content:center}.nav-link{margin-left:auto}}
 @media(max-width:700px){.institution-logos{gap:6px}.institution-link+.institution-link{padding-left:7px}.alaya-link{gap:4px;font-size:9px}.alaya-link img{width:20px;height:20px}.sii-link img{width:88px;height:26px}.whu-link img{width:77px;height:26px}.nav nav{justify-content:space-between}.access-section,.citation-section{padding-top:62px;padding-bottom:68px}.citation-section{grid-template-columns:1fr;gap:35px}.citation-heading p{margin-top:15px}.resource-grid{grid-template-columns:1fr}.resource-card{min-height:165px}.citation-code pre{font-size:10px}}
