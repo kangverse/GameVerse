@@ -2,13 +2,13 @@
 const $ = id => document.getElementById(id);
 const number = n => new Intl.NumberFormat('en-US').format(n);
 const escapeHTML = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const SITE_VERSION = '20261016-slate-rdr2-merged';
+const SITE_VERSION = '20261017-frame-aligned-pose';
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 const conserveData = !!navigator.connection?.saveData;
 let cases = [], stats, continuity, researchResults, heroIndex = 4, heroPaused = reduced.matches || conserveData;
 let chartMode = 'clips', activeField = 'static_scene', galleryFilter = 'all', currentClip, returnFocus;
 let heroVisible = true, annotationPosition = 0, annotationSeekTarget = null, resultType = 'continuity', scaleCase;
-let trajectoryProjection, trajectoryFrame = 0;
+let trajectoryProjection, trajectoryFrame = 0, trajectoryVideoFrame = 0;
 const fieldNames = {static_scene:'Scene structure',subject_motion:'Player behavior',environment_motion:'World dynamics',camera_description:'Camera viewpoint & motion'};
 const timeLabel = time => `${Math.floor(time / 60)}:${String(Math.floor(time % 60)).padStart(2,'0')}`;
 const secondLabel = time => Number.isInteger(time) ? String(time) : time.toFixed(1);
@@ -113,7 +113,7 @@ function markKeyframe(position) {
   const selected=buttons.reduce((nearest,b)=>Math.abs(Number(b.dataset.time)-position)<Math.abs(Number(nearest.dataset.time)-position)?b:nearest,buttons[0]);
   buttons.forEach(b=>{b.classList.toggle('active',b===selected);b.setAttribute('aria-pressed',String(b===selected));});
 }
-function renderAnnotation(position=annotationPosition) {
+function renderAnnotation(position=annotationPosition,syncTrajectory=true) {
   if(!continuity)return;
   annotationPosition=position;
   const captionPosition=Math.min(position,continuity.duration_s-.05);
@@ -122,22 +122,15 @@ function renderAnnotation(position=annotationPosition) {
   $('annotation-seek').value=position;
   $('annotation-range').textContent=segment ? `SOURCE INTERVAL / ${secondLabel(segment.start_s)}–${secondLabel(segment.end_s)} s` : 'CAPTION REFRESH PENDING';
   $('annotation-content').textContent=segment ? (segment.fields[activeField] || 'No explicit event is described in this interval.') : 'This part of the recording is awaiting the full-duration caption refresh. Explore an earlier interval to inspect the current annotations.';
-  updateTrajectoryProgress(position);
+  if(syncTrajectory)updateTrajectoryProgress(position);
 }
 function updateTrajectoryProgress(position) {
   if(!trajectoryProjection)return;
-  const {projected,indices}=trajectoryProjection;
+  const {projected,cumulative,totalLength}=trajectoryProjection;
   const duration=continuity.duration_s;
-  const ratio=Math.max(0,Math.min(position/duration,1));
-  const target=indices[0]+ratio*(indices[indices.length-1]-indices[0]);
-  let upper=indices.findIndex(index=>index>=target);
-  if(upper<0)upper=indices.length-1;
-  const lower=Math.max(0,upper-1);
-  const weight=upper===0?0:(target-indices[lower])/Math.max(indices[upper]-indices[lower],1);
-  const current=upper===0?projected[0]:projected[lower].map((value,axis)=>value+(projected[upper][axis]-value)*weight);
-  const visible=projected.slice(0,Math.max(upper,1));
-  if(upper>0)visible.push(current);
-  $('trajectory-progress').setAttribute('points',visible.map(p=>p.map(n=>n.toFixed(2)).join(',')).join(' '));
+  const frame=Math.max(0,Math.min(Math.round(position*continuity.trajectory.sample_rate_hz),projected.length-1));
+  const current=projected[frame];
+  $('trajectory-progress').setAttribute('stroke-dasharray',`${cumulative[frame].toFixed(2)} ${totalLength.toFixed(2)}`);
   $('trajectory-current').setAttribute('cx',current[0].toFixed(2));
   $('trajectory-current').setAttribute('cy',current[1].toFixed(2));
   $('trajectory-current-halo').setAttribute('cx',current[0].toFixed(2));
@@ -153,11 +146,13 @@ function renderTrajectory(plane) {
   const scale=Math.min(420/Math.max(maxX-minX,.001),150/Math.max(maxY-minY,.001));
   const midX=(minX+maxX)/2,midY=(minY+maxY)/2;
   const projected=points.map(p=>[285+(p[a]-midX)*scale,115-(p[b]-midY)*scale]);
-  trajectoryProjection={projected,indices:continuity.trajectory.sample_indices||points.map((_,index)=>index)};
+  const cumulative=[0];
+  for(let index=1;index<projected.length;index++)cumulative.push(cumulative[index-1]+Math.hypot(projected[index][0]-projected[index-1][0],projected[index][1]-projected[index-1][1]));
+  trajectoryProjection={projected,cumulative,totalLength:cumulative[cumulative.length-1]};
   const path=projected.map(p=>p.map(n=>n.toFixed(2)).join(',')).join(' ');
   const start=projected[0],end=projected[projected.length-1];
-  $('trajectory-svg').innerHTML=`<title id="trajectory-title">Estimated camera-center trajectory, ${plane.toUpperCase()} projection</title><desc id="trajectory-description">Ordered camera centers with a colored position mapped to normalized video progress. Exact frame-to-pose timing is not confirmed.</desc><defs><linearGradient id="trajectory-gradient" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#668df4"/><stop offset="55%" stop-color="#54c7d2"/><stop offset="100%" stop-color="#e5cc91"/></linearGradient></defs><line class="trajectory-axis" x1="55" y1="202" x2="510" y2="202"/><line class="trajectory-axis" x1="55" y1="25" x2="55" y2="202"/><text class="trajectory-label" x="270" y="232">${plane[0].toUpperCase()} (relative units)</text><text class="trajectory-label" x="16" y="165" transform="rotate(-90 16 165)">${plane[1].toUpperCase()} (relative units)</text><polyline class="trajectory-path" points="${path}"/><polyline class="trajectory-progress" id="trajectory-progress" points=""/><circle class="trajectory-start" cx="${start[0]}" cy="${start[1]}" r="4"/><circle class="trajectory-end" cx="${end[0]}" cy="${end[1]}" r="4"/><circle class="trajectory-current-halo" id="trajectory-current-halo" cx="${start[0]}" cy="${start[1]}" r="9"/><circle class="trajectory-current" id="trajectory-current" cx="${start[0]}" cy="${start[1]}" r="5"/><text class="trajectory-label" x="395" y="18">○ Start · ● End</text>`;
-  $('trajectory-caption').textContent=`${number(continuity.trajectory.total_samples)} stored samples · ${points.length} displayed camera centers · ${plane.toUpperCase()} projection · Largest 3D axis span normalized to 1`;
+  $('trajectory-svg').innerHTML=`<title id="trajectory-title">Estimated camera-center trajectory, ${plane.toUpperCase()} projection</title><desc id="trajectory-description">Camera centers sampled at 30 fps from the original 60 fps recording. The marker follows the corresponding pose frame.</desc><defs><linearGradient id="trajectory-gradient" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#668df4"/><stop offset="55%" stop-color="#54c7d2"/><stop offset="100%" stop-color="#e5cc91"/></linearGradient></defs><line class="trajectory-axis" x1="55" y1="202" x2="510" y2="202"/><line class="trajectory-axis" x1="55" y1="25" x2="55" y2="202"/><text class="trajectory-label" x="270" y="232">${plane[0].toUpperCase()} (relative units)</text><text class="trajectory-label" x="16" y="165" transform="rotate(-90 16 165)">${plane[1].toUpperCase()} (relative units)</text><polyline class="trajectory-path" points="${path}"/><polyline class="trajectory-progress" id="trajectory-progress" points="${path}"/><circle class="trajectory-start" cx="${start[0]}" cy="${start[1]}" r="4"/><circle class="trajectory-end" cx="${end[0]}" cy="${end[1]}" r="4"/><circle class="trajectory-current-halo" id="trajectory-current-halo" cx="${start[0]}" cy="${start[1]}" r="9"/><circle class="trajectory-current" id="trajectory-current" cx="${start[0]}" cy="${start[1]}" r="5"/><text class="trajectory-label" x="395" y="18">○ Start · ● End</text>`;
+  $('trajectory-caption').textContent=`${number(continuity.trajectory.total_samples)} frame-indexed camera centers · ${continuity.trajectory.sample_rate_hz} fps pose sampling · ${plane.toUpperCase()} projection · Relative scale`;
   updateTrajectoryProgress(annotationPosition);
 }
 function populateDialog(c) {
@@ -217,17 +212,29 @@ $('annotation-seek').addEventListener('input',e=>{const position=Number(e.target
 $('annotation-video').addEventListener('timeupdate',()=>{
   const position=$('annotation-video').currentTime;
   if(annotationSeekTarget!==null && Math.abs(position-annotationSeekTarget)>.3)return;
-  annotationSeekTarget=null;renderAnnotation(position);
+  annotationSeekTarget=null;renderAnnotation(position,$('annotation-video').paused || !('requestVideoFrameCallback' in $('annotation-video')));
 });
-function animateTrajectory() {
-  trajectoryFrame=0;
+function scheduleTrajectoryFrame() {
   const video=$('annotation-video');
   if(video.paused || document.hidden)return;
-  updateTrajectoryProgress(video.currentTime);
-  trajectoryFrame=requestAnimationFrame(animateTrajectory);
+  if('requestVideoFrameCallback' in video){
+    trajectoryVideoFrame=video.requestVideoFrameCallback((_,metadata)=>{
+      trajectoryVideoFrame=0;
+      updateTrajectoryProgress(metadata.mediaTime);
+      scheduleTrajectoryFrame();
+    });
+  }else trajectoryFrame=requestAnimationFrame(()=>{
+    trajectoryFrame=0;
+    updateTrajectoryProgress(video.currentTime);
+    scheduleTrajectoryFrame();
+  });
 }
-$('annotation-video').addEventListener('play',()=>{if(!trajectoryFrame)trajectoryFrame=requestAnimationFrame(animateTrajectory);});
-for(const event of ['pause','ended'])$('annotation-video').addEventListener(event,()=>{cancelAnimationFrame(trajectoryFrame);trajectoryFrame=0;updateTrajectoryProgress($('annotation-video').currentTime);});
+$('annotation-video').addEventListener('play',()=>{if(!trajectoryFrame && !trajectoryVideoFrame)scheduleTrajectoryFrame();});
+for(const event of ['pause','ended'])$('annotation-video').addEventListener(event,()=>{
+  cancelAnimationFrame(trajectoryFrame);trajectoryFrame=0;
+  if(trajectoryVideoFrame)$('annotation-video').cancelVideoFrameCallback(trajectoryVideoFrame);
+  trajectoryVideoFrame=0;updateTrajectoryProgress($('annotation-video').currentTime);
+});
 $('annotation-video').addEventListener('seeked',()=>updateTrajectoryProgress($('annotation-video').currentTime));
 $('continuity-video').addEventListener('timeupdate',()=>markKeyframe($('continuity-video').currentTime));
 for(const id of ['annotation-video','continuity-video'])$(id).addEventListener('play',()=>{
