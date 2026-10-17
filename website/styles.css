@@ -64,6 +64,14 @@ body:before{opacity:.11}
 .trajectory-path{stroke:#e6e8ed;filter:drop-shadow(0 0 3px rgba(255,255,255,.4))}
 .trajectory-start{stroke:var(--text)}
 .trajectory-end{fill:var(--text)}
+.trajectory-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:2px 4px 10px;color:var(--muted);font-size:9px}
+.trajectory-head #trajectory-time{color:#93dce1;white-space:nowrap}
+.trajectory-path{stroke:#516278;stroke-width:2.25;filter:none;opacity:.75}
+.trajectory-progress{stroke:url(#trajectory-gradient);stroke-width:4;fill:none;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 5px rgba(84,199,210,.5))}
+.trajectory-start{stroke:#84a7f3;stroke-width:2}
+.trajectory-end{fill:#e5cc91}
+.trajectory-current-halo{fill:rgba(84,199,210,.18);stroke:rgba(132,222,227,.42);stroke-width:1.5}
+.trajectory-current{fill:#e9ffff;stroke:#43bec9;stroke-width:2;filter:drop-shadow(0 0 5px rgba(84,199,210,.9))}
 .result-labels span:nth-child(2){color:var(--text)}
 .access-section{padding-top:90px;padding-bottom:90px}
 .access-section .section-heading{margin-bottom:30px}
