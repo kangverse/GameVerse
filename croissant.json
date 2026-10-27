@@ -1,0 +1,434 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "sc": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "dct": "http://purl.org/dc/terms/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "conformsTo": "dct:conformsTo",
+    "citeAs": "cr:citeAs",
+    "recordSet": "cr:recordSet",
+    "field": "cr:field",
+    "source": "cr:source",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "extract": "cr:extract",
+    "column": "cr:column",
+    "key": "cr:key",
+    "containedIn": "cr:containedIn",
+    "includes": "cr:includes",
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "equivalentProperty": "cr:equivalentProperty",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "fileProperty": "cr:fileProperty",
+    "format": "cr:format",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
+    "separator": "cr:separator",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "@id": "https://huggingface.co/datasets/Kangverse/GameVerse",
+  "name": "GameVerse",
+  "description": "Gameplay clip metadata and paired camera-pose and temporally grounded caption annotations for 69,678 retained clips. The release provides source URLs and clip boundaries but does not redistribute MP4 videos.",
+  "url": "https://huggingface.co/datasets/Kangverse/GameVerse",
+  "license": "https://huggingface.co/datasets/Kangverse/GameVerse/resolve/main/LICENSE",
+  "creator": {
+    "@type": "sc:Person",
+    "name": "Kang He",
+    "url": "https://huggingface.co/Kangverse"
+  },
+  "dateCreated": "2026-08-27",
+  "datePublished": "2026-10-27",
+  "inLanguage": "en",
+  "keywords": [
+    "gameplay",
+    "world modeling",
+    "camera pose",
+    "temporal captions",
+    "interactive video"
+  ],
+  "citeAs": "@inproceedings{he2026gameverse,\n  title = {GameVerse: A Minute-Scale Gameplay Dataset for Long-Horizon Interactive World Modeling},\n  author = {He, Kang and Peng, Wenshuo and Li, Chuanhao and Gao, Zihui and Xu, Xiaojie and Lin, Zhengyuan and Ding, Yuzhe and Ji, Donghong and Zhang, Kaipeng and Ge, Yongtao},\n  booktitle = {Advances in Neural Information Processing Systems},\n  year = {2026}\n}",
+  "conformsTo": [
+    "http://mlcommons.org/croissant/1.1",
+    "http://mlcommons.org/croissant/RAI/1.0"
+  ],
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "gameverse_dataset.csv",
+      "name": "gameverse_dataset.csv",
+      "description": "One metadata row per retained gameplay clip.",
+      "contentUrl": "https://huggingface.co/datasets/Kangverse/GameVerse/resolve/main/gameverse_dataset.csv",
+      "encodingFormat": "text/csv",
+      "contentSize": "50910193 B",
+      "sha256": "84e64f778aa91d60e1bd536bc7ada9b2c7bee192d96dbe02ef54597d20b7f577"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "pose.tar",
+      "name": "pose.tar",
+      "description": "Camera-pose annotation files.",
+      "contentUrl": "https://huggingface.co/datasets/Kangverse/GameVerse/resolve/main/annotations/pose.tar",
+      "encodingFormat": "application/x-tar",
+      "contentSize": "12963901440 B",
+      "sha256": "5854b5139b444fad0d48eff51c2e262697617a7c6cab8929259d4ccd33f39fbc"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "caption.tar",
+      "name": "caption.tar",
+      "description": "Structured caption annotation files.",
+      "contentUrl": "https://huggingface.co/datasets/Kangverse/GameVerse/resolve/main/annotations/caption.tar",
+      "encodingFormat": "application/x-tar",
+      "contentSize": "809072640 B",
+      "sha256": "a82c94bb2a07e7e83d029a61b4d80bdc79b342c301b9eea4027ce2c1d7fb0441"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "annotation_archives.csv",
+      "name": "annotation_archives.csv",
+      "description": "Published sizes and SHA-256 checksums of the pose and caption archives.",
+      "contentUrl": "https://huggingface.co/datasets/Kangverse/GameVerse/resolve/main/metadata/annotation_archives.csv",
+      "encodingFormat": "text/csv",
+      "contentSize": "228 B",
+      "sha256": "f9ad54af373688ebdf8ffca3fc85ba2b252dfa68b635bbbdef881d33821b7064"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "pose-files",
+      "name": "Pose NPZ files",
+      "containedIn": {
+        "@id": "pose.tar"
+      },
+      "encodingFormat": "application/octet-stream",
+      "includes": "annotation/pose/*.npz"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "caption-files",
+      "name": "Caption JSON files",
+      "containedIn": {
+        "@id": "caption.tar"
+      },
+      "encodingFormat": "application/json",
+      "includes": "annotation/caption/*.json"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "clips",
+      "name": "GameVerse clips",
+      "description": "The 69,678 rows of gameverse_dataset.csv.",
+      "key": {
+        "@id": "clips/clip_id"
+      },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "clips/dataset",
+          "name": "dataset",
+          "description": "Dataset label in the released CSV.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "gameverse_dataset.csv"
+            },
+            "extract": {
+              "column": "dataset"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "clips/clip_id",
+          "name": "clip_id",
+          "description": "Identifier of the retained gameplay clip; primary key for this table.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "gameverse_dataset.csv"
+            },
+            "extract": {
+              "column": "clip_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "clips/video_id",
+          "name": "video_id",
+          "description": "YouTube source-video identifier.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "gameverse_dataset.csv"
+            },
+            "extract": {
+              "column": "video_id"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "clips/url",
+          "name": "url",
+          "description": "URL of the source YouTube recording; MP4 bytes are not redistributed here.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "gameverse_dataset.csv"
+            },
+            "extract": {
+              "column": "url"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "clips/fps",
+          "name": "fps",
+          "description": "Source-video nominal frames per second recorded in the source metadata.",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "gameverse_dataset.csv"
+            },
+            "extract": {
+              "column": "fps"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "clips/start_frame",
+          "name": "start_frame",
+          "description": "Start frame index of the clip within its source recording.",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "gameverse_dataset.csv"
+            },
+            "extract": {
+              "column": "start_frame"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "clips/end_frame",
+          "name": "end_frame",
+          "description": "End frame index of the clip within its source recording.",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "gameverse_dataset.csv"
+            },
+            "extract": {
+              "column": "end_frame"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "clips/num_frames",
+          "name": "num_frames",
+          "description": "Number of frames recorded for the clip.",
+          "dataType": "sc:Integer",
+          "source": {
+            "fileObject": {
+              "@id": "gameverse_dataset.csv"
+            },
+            "extract": {
+              "column": "num_frames"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "clips/start_time",
+          "name": "start_time",
+          "description": "Start time of the clip in the source recording, in seconds.",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "gameverse_dataset.csv"
+            },
+            "extract": {
+              "column": "start_time"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "clips/end_time",
+          "name": "end_time",
+          "description": "End time of the clip in the source recording, in seconds.",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "gameverse_dataset.csv"
+            },
+            "extract": {
+              "column": "end_time"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "clips/duration",
+          "name": "duration",
+          "description": "Clip duration in seconds.",
+          "dataType": "sc:Float",
+          "source": {
+            "fileObject": {
+              "@id": "gameverse_dataset.csv"
+            },
+            "extract": {
+              "column": "duration"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "clips/game_name",
+          "name": "game_name",
+          "description": "Game name supplied with the clip metadata; spelling is not independently verified.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "gameverse_dataset.csv"
+            },
+            "extract": {
+              "column": "game_name"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "clips/style_keywords",
+          "name": "style_keywords",
+          "description": "Style keywords associated with the clip.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "gameverse_dataset.csv"
+            },
+            "extract": {
+              "column": "style_keywords"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "clips/style_sentence",
+          "name": "style_sentence",
+          "description": "Natural-language style description associated with the clip.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "gameverse_dataset.csv"
+            },
+            "extract": {
+              "column": "style_sentence"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "clips/pose_path",
+          "name": "pose_path",
+          "description": "Member path of the pose NPZ inside annotations/pose.tar.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "gameverse_dataset.csv"
+            },
+            "extract": {
+              "column": "pose_path"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "clips/caption_path",
+          "name": "caption_path",
+          "description": "Member path of the caption JSON inside annotations/caption.tar.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "gameverse_dataset.csv"
+            },
+            "extract": {
+              "column": "caption_path"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "rai:dataCollection": "GameVerse was curated from source YouTube gameplay recordings. The recorded scenes are rendered by game engines during play, not generated by a text-to-video model. Videos were segmented into scenes, filtered, and refined into clips of up to two minutes. The CSV retains source URLs and clip boundaries; source MP4 files are not redistributed.",
+  "rai:dataCollectionRawData": "Source gameplay recordings are identified by YouTube URLs in the CSV. A source-video URL list is also available at https://github.com/kangverse/GameVerse/blob/main/gameverse_url.txt.",
+  "rai:dataPreprocessingProtocol": [
+    "Scene segmentation, clip selection, fine-grained filtering, and post-acceptance quality control produced the final 69,678-clip selection."
+  ],
+  "rai:dataAnnotationProtocol": "The release pairs each clip with camera-pose and structured caption annotations. Captions include clip-level descriptions and segment-level time ranges; pose records are estimated camera trajectories. Some two-minute clips have incomplete temporal caption coverage, and re-annotation is in progress.",
+  "rai:machineAnnotationTools": [
+    "Camera trajectories were estimated with the ViPE pose pipeline. Structured captions were produced through a model-assisted annotation pipeline."
+  ],
+  "rai:dataLimitations": [
+    "Source YouTube recordings may become unavailable or change; exact video reconstruction requires the corresponding source media and timing metadata.",
+    "Some two-minute clips have caption segments that do not cover the full clip. The final selection has five clips without a corresponding pose file; pose-to-video temporal alignment should be checked for a specific use.",
+    "Game-rendered footage is not evidence of real-world physical dynamics or human behavior."
+  ],
+  "rai:dataBiases": [
+    "Selection from available YouTube gameplay and subsequent quality filtering may overrepresent games, visual styles, and recording practices that are easier to collect or pass the filters; representativeness across games and players has not been established.",
+    "Model-assisted captions may contain annotation errors or model-specific descriptive biases; these have not been quantified for every clip."
+  ],
+  "rai:personalSensitiveInformation": [
+    "The CSV contains source YouTube URLs and video IDs, which can be linked to uploader accounts. Linked recordings or free-text captions may contain player handles, voices, or other identifying content; the release has not been certified free of personal information."
+  ],
+  "rai:dataUseCases": [
+    "Intended for non-commercial research on long-horizon interactive world modeling, camera-conditioned video learning, and temporally grounded gameplay description, subject to the dataset license.",
+    "Not validated for real-world navigation, safety-critical decisions, or inference about player demographics or behavior."
+  ],
+  "rai:dataSocialImpact": "The dataset may support research on interactive video models and temporal understanding. Users should consider the rights and context of linked source recordings and the possibility that selection or annotation biases transfer into trained systems. The release redistributes metadata and annotations rather than source MP4 files.",
+  "rai:hasSyntheticData": true,
+  "prov:wasDerivedFrom": {
+    "@id": "https://github.com/kangverse/GameVerse/blob/main/gameverse_url.txt",
+    "@type": "prov:Entity",
+    "prov:label": "List of source YouTube gameplay recordings"
+  },
+  "prov:wasGeneratedBy": [
+    {
+      "@type": "prov:Activity",
+      "prov:label": "Gameplay scene segmentation, filtering, and clip selection"
+    },
+    {
+      "@type": "prov:Activity",
+      "prov:label": "Camera-pose estimation and model-assisted caption annotation"
+    }
+  ]
+}

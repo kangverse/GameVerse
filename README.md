@@ -32,6 +32,8 @@ The GameVerse dataset is hosted on [Hugging Face](https://huggingface.co/dataset
 
 The CSV fields are `dataset`, `clip_id`, `video_id`, `url`, `fps`, `start_frame`, `end_frame`, `num_frames`, `start_time`, `end_time`, `duration`, `game_name`, `style_keywords`, `style_sentence`, `pose_path`, and `caption_path`. MP4 clips are not redistributed in the Hugging Face release; the CSV provides source URLs and clip boundaries.
 
+The [Croissant metadata](croissant.json) describes the released files, CSV schema, provenance, and responsible-use considerations in a machine-readable format.
+
 - **Clip IDs:** Each clip is identified by `<youtube_id>_<start_index>_<end_index>`. The numerical suffixes are consistent with source-frame counts at nominal frame rates; they should not be interpreted as microseconds. Use explicit video timestamps and producer metadata for precise timing.
 - **Source videos:** [`gameverse_url.txt`](gameverse_url.txt) lists the source YouTube URLs, one per line. Source videos remain the property of their creators.
 - **Captions:** Segment-level descriptions are associated with clip IDs and temporal intervals. Some two-minute clips do not yet have caption segments covering the full 120 seconds; see [Ongoing caption updates](#ongoing-caption-updates).
