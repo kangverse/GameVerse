@@ -2,11 +2,17 @@
 
 **GameVerse: A Minute-Scale Gameplay Dataset for Long-Horizon Interactive World Modeling** · NeurIPS 2026
 
-[Project](https://kangverse.github.io/GameVerse/) · arXiv (coming soon) · [Code / GitHub](https://github.com/kangverse/GameVerse) · [Hugging Face Dataset](https://huggingface.co/datasets/Kangverse/GameVerse)
+<p align="center">
+  <a href="https://kangverse.github.io/GameVerse/"><img src="https://img.shields.io/badge/Project-Page-2864DC?logo=githubpages&logoColor=white" alt="Project page"></a>
+  <!-- Replace the arXiv homepage URL with the GameVerse paper URL when available. -->
+  <a href="https://arxiv.org/"><img src="https://img.shields.io/badge/arXiv-Coming%20Soon-B31B1B?logo=arxiv&logoColor=white" alt="arXiv paper coming soon"></a>
+  <a href="https://github.com/kangverse/GameVerse/tree/main/data_tools"><img src="https://img.shields.io/badge/Code-Data%20Tools-181717?logo=github&logoColor=white" alt="Data tools code"></a>
+  <a href="https://huggingface.co/datasets/Kangverse/GameVerse"><img src="https://img.shields.io/badge/Dataset-Hugging%20Face-FFD21E?logo=huggingface&logoColor=black" alt="Hugging Face dataset"></a>
+</p>
 
 ## News
 
-- **2026-10-27:** Removed the legacy caption snapshot from this GitHub repository. We are re-annotating clips with incomplete temporal caption coverage and will post another update here when the revised captions are available on Hugging Face.
+- **2026-10-27:** Added public data tools and removed the legacy caption snapshot from this GitHub repository. We are re-annotating clips with incomplete temporal caption coverage and will post another update here when the revised captions are available on Hugging Face.
 
 ## Overview
 
@@ -26,6 +32,15 @@ The GameVerse dataset is hosted on [Hugging Face](https://huggingface.co/dataset
 - **Camera trajectories:** Pose records can be matched to clips by ID where available. The October 2026 audit found five missing pose files in the final selection; pose availability and exact temporal alignment should be checked before use.
 
 Clip duration refers to the video track, excluding audio or container padding. Frame counts are encoded video sample counts. Two-minute clips are identified using a 0.05-second tolerance.
+
+## Data tools
+
+The [`data_tools/`](data_tools/) directory contains two small utilities:
+
+- [`reconstruct_clip.py`](data_tools/reconstruct_clip.py) downloads or reads a source video and extracts a clip from **explicit start time and duration**. It does not infer timestamps from the clip ID.
+- [`caption_coverage.py`](data_tools/caption_coverage.py) measures the union of caption segment intervals and reports uncovered time ranges.
+
+See the [data tools guide](data_tools/README.md) for commands and limitations. Reconstructed downloads may differ from the media used in the final release; clip IDs alone are insufficient for exact timing.
 
 ## Release notes
 
