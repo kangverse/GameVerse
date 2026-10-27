@@ -7,7 +7,7 @@
   <!-- Replace the arXiv homepage URL with the GameVerse paper URL when available. -->
   <a href="https://arxiv.org/"><img src="https://img.shields.io/badge/arXiv-Coming%20Soon-B31B1B?logo=arxiv&logoColor=white" alt="arXiv paper coming soon"></a>
   <a href="https://github.com/kangverse/GameVerse/tree/main/data_tools"><img src="https://img.shields.io/badge/Code-Data%20Tools-181717?logo=github&logoColor=white" alt="Data tools code"></a>
-  <a href="https://huggingface.co/datasets/Kangverse/GameVerse"><img src="https://img.shields.io/badge/Dataset-Hugging%20Face-FFD21E?logo=huggingface&logoColor=black" alt="Hugging Face dataset"></a>
+  <a href="https://huggingface.co/datasets/Kangverse/GameVerse"><img src="https://img.shields.io/badge/Dataset-Hugging%20Face-24292F?logo=huggingface&logoColor=FFD21E" alt="Hugging Face dataset"></a>
 </p>
 
 ## 📰 News
