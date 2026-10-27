@@ -10,11 +10,11 @@
   <a href="https://huggingface.co/datasets/Kangverse/GameVerse"><img src="https://img.shields.io/badge/Dataset-Hugging%20Face-FFD21E?logo=huggingface&logoColor=black" alt="Hugging Face dataset"></a>
 </p>
 
-## News
+## 📰 News
 
 - **2026-10-27:** Added public data tools and removed the legacy caption snapshot from this GitHub repository. We are re-annotating clips with incomplete temporal caption coverage and will post another update here when the revised captions are available on Hugging Face.
 
-## Overview
+## 📊 Overview
 
 GameVerse is a gameplay video dataset for long-horizon interactive world modeling. It brings together continuous gameplay clips, camera trajectories, and structured descriptions of scene content and activity across diverse games.
 
@@ -22,7 +22,7 @@ The verified final video selection contains **69,678 clips**, **1,655.05 video h
 
 ![GameVerse construction pipeline: gameplay videos are segmented into scenes, filtered, refined into clips of up to two minutes, and annotated with camera trajectories and structured captions.](website/assets/media/paper-overview-pipeline.webp)
 
-## Dataset access and format
+## 📥 Dataset access and format
 
 The GameVerse dataset is hosted on [Hugging Face](https://huggingface.co/datasets/Kangverse/GameVerse). Access is currently restricted; we will announce public availability in News. The video dataset and per-clip captions are not stored in this Git repository.
 
@@ -33,7 +33,7 @@ The GameVerse dataset is hosted on [Hugging Face](https://huggingface.co/dataset
 
 Clip duration refers to the video track, excluding audio or container padding. Frame counts are encoded video sample counts. Two-minute clips are identified using a 0.05-second tolerance.
 
-## Data tools
+## 🛠️ Data tools
 
 The [`data_tools/`](data_tools/) directory contains two small utilities:
 
@@ -42,7 +42,7 @@ The [`data_tools/`](data_tools/) directory contains two small utilities:
 
 See the [data tools guide](data_tools/README.md) for commands and limitations. Reconstructed downloads may differ from the media used in the final release; clip IDs alone are insufficient for exact timing.
 
-## Release notes
+## 📝 Release notes
 
 ### Dataset refinement
 
