@@ -1,6 +1,6 @@
-# GameVerse
+# GameVerse: A Minute-Scale Gameplay Dataset for Long-Horizon Interactive World Modeling
 
-**GameVerse: A Minute-Scale Gameplay Dataset for Long-Horizon Interactive World Modeling** · NeurIPS 2026
+**NeurIPS 2026**
 
 <p align="center">
   <a href="https://kangverse.github.io/GameVerse/"><img src="https://img.shields.io/badge/Project-Page-2864DC?logo=githubpages&logoColor=white" alt="Project page"></a>
@@ -9,6 +9,8 @@
   <a href="https://github.com/kangverse/GameVerse/tree/main/data_tools"><img src="https://img.shields.io/badge/Code-Data%20Tools-181717?logo=github&logoColor=white" alt="Data tools code"></a>
   <a href="https://huggingface.co/datasets/Kangverse/GameVerse"><img src="https://img.shields.io/badge/Dataset-Hugging%20Face-24292F?logo=huggingface&logoColor=FFD21E" alt="Hugging Face dataset"></a>
 </p>
+
+![GameVerse construction pipeline: gameplay videos are segmented into scenes, filtered, refined into clips of up to two minutes, and annotated with camera trajectories and structured captions.](website/assets/media/paper-overview-pipeline.webp)
 
 ## 📰 News
 
@@ -19,8 +21,6 @@
 GameVerse is a gameplay video dataset for long-horizon interactive world modeling. It brings together continuous gameplay clips, camera trajectories, and structured descriptions of scene content and activity across diverse games.
 
 The verified final video selection contains **69,678 clips**, **1,655.05 video hours**, and **349,628,223 encoded frames**. Of these, **40,752 clips** are approximately two minutes long and contribute **1,358.43 hours** (82.1% of total video duration).
-
-![GameVerse construction pipeline: gameplay videos are segmented into scenes, filtered, refined into clips of up to two minutes, and annotated with camera trajectories and structured captions.](website/assets/media/paper-overview-pipeline.webp)
 
 ## 📥 Dataset access and format
 
