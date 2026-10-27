@@ -12,19 +12,25 @@
 
 ## 📰 News
 
-- **2026-10-27:** Added public data tools and removed the legacy caption snapshot from this GitHub repository. We are re-annotating clips with incomplete temporal caption coverage and will post another update here when the revised captions are available on Hugging Face.
+- **2026-10-27:** We uploaded the GameVerse dataset to [Hugging Face](https://huggingface.co/datasets/Kangverse/GameVerse) and submitted our paper to arXiv. We will add the paper link and announce future caption updates here.
 
 ## 📊 Overview
 
 GameVerse is a gameplay video dataset for long-horizon interactive world modeling. It brings together continuous gameplay clips, camera trajectories, and structured descriptions of scene content and activity across diverse games.
 
-The verified final video selection contains **69,678 clips**, **1,655.05 video hours**, and **349,628,223 encoded frames**. Of these, **40,752 clips** are approximately two minutes long and contribute **1,358.43 hours** (82.1% of total video duration). These values were checked against the final retained-clip manifest on October 10, 2026.
+The verified final video selection contains **69,678 clips**, **1,655.05 video hours**, and **349,628,223 encoded frames**. Of these, **40,752 clips** are approximately two minutes long and contribute **1,358.43 hours** (82.1% of total video duration).
 
 ![GameVerse construction pipeline: gameplay videos are segmented into scenes, filtered, refined into clips of up to two minutes, and annotated with camera trajectories and structured captions.](website/assets/media/paper-overview-pipeline.webp)
 
 ## 📥 Dataset access and format
 
-The GameVerse dataset is hosted on [Hugging Face](https://huggingface.co/datasets/Kangverse/GameVerse). Access is currently restricted; we will announce public availability in News. The video dataset and per-clip captions are not stored in this Git repository.
+The GameVerse dataset is hosted on [Hugging Face](https://huggingface.co/datasets/Kangverse/GameVerse). The release includes:
+
+- [`gameverse_dataset.csv`](https://huggingface.co/datasets/Kangverse/GameVerse/blob/main/gameverse_dataset.csv): one row per clip, with the clip and source video IDs, YouTube URL, frame rate, frame and timestamp ranges, game name, style descriptions, and annotation paths.
+- [`annotations/pose.tar`](https://huggingface.co/datasets/Kangverse/GameVerse/blob/main/annotations/pose.tar) and [`annotations/caption.tar`](https://huggingface.co/datasets/Kangverse/GameVerse/blob/main/annotations/caption.tar): camera-pose and caption files matched to the CSV by `pose_path` and `caption_path`. These paths are the member names inside the respective archives, such as `annotation/pose/<clip_id_without_mp4>.npz` and `annotation/caption/<clip_id_without_mp4>.json`.
+- [`metadata/annotation_archives.csv`](https://huggingface.co/datasets/Kangverse/GameVerse/blob/main/metadata/annotation_archives.csv): sizes and SHA-256 checksums for the annotation archives.
+
+The CSV fields are `dataset`, `clip_id`, `video_id`, `url`, `fps`, `start_frame`, `end_frame`, `num_frames`, `start_time`, `end_time`, `duration`, `game_name`, `style_keywords`, `style_sentence`, `pose_path`, and `caption_path`. MP4 clips are not redistributed in the Hugging Face release; the CSV provides source URLs and clip boundaries.
 
 - **Clip IDs:** Each clip is identified by `<youtube_id>_<start_index>_<end_index>`. The numerical suffixes are consistent with source-frame counts at nominal frame rates; they should not be interpreted as microseconds. Use explicit video timestamps and producer metadata for precise timing.
 - **Source videos:** [`gameverse_url.txt`](gameverse_url.txt) lists the source YouTube URLs, one per line. Source videos remain the property of their creators.
