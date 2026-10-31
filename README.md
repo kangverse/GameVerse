@@ -4,8 +4,7 @@
 
 <p align="center">
   <a href="https://kangverse.github.io/GameVerse/"><img src="https://img.shields.io/badge/Project-Page-2864DC?logo=githubpages&logoColor=white" alt="Project page"></a>
-  <!-- Replace the arXiv homepage URL with the GameVerse paper URL when available. -->
-  <a href="https://arxiv.org/"><img src="https://img.shields.io/badge/arXiv-Coming%20Soon-B31B1B?logo=arxiv&logoColor=white" alt="arXiv paper coming soon"></a>
+  <a href="https://arxiv.org/abs/2610.37257"><img src="https://img.shields.io/badge/arXiv-2610.37257-B31B1B?logo=arxiv&logoColor=white" alt="GameVerse paper on arXiv"></a>
   <a href="https://github.com/kangverse/GameVerse/tree/main/data_tools"><img src="https://img.shields.io/badge/Code-Data%20Tools-181717?logo=github&logoColor=white" alt="Data tools code"></a>
   <a href="https://huggingface.co/datasets/Kangverse/GameVerse"><img src="https://img.shields.io/badge/Dataset-Hugging%20Face-24292F?logo=huggingface&logoColor=FFD21E" alt="Hugging Face dataset"></a>
 </p>
@@ -14,7 +13,7 @@
 
 ## 📰 News
 
-- **2026-10-27:** We uploaded the GameVerse dataset to [Hugging Face](https://huggingface.co/datasets/Kangverse/GameVerse) and submitted our paper to arXiv. We will add the paper link and announce future caption updates here.
+- **2026-10-27:** Released the GameVerse dataset on [Hugging Face](https://huggingface.co/datasets/Kangverse/GameVerse) and posted the [paper on arXiv](https://arxiv.org/abs/2610.37257). We will announce future caption updates here.
 
 ## 📊 Overview
 
